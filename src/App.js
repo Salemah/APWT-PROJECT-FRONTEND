@@ -5,6 +5,8 @@ import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Header from './Shared/Header';
 import Home from './Pages/Home/Home/Home';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
 
 
 function App() {
@@ -18,6 +20,12 @@ function App() {
        </Route>  
        <Route path="/home">
          <Home></Home>
+       </Route>  
+       <Route path="/login">
+         <Login></Login>
+       </Route>  
+       <Route path="/Register">
+         <Register></Register>
        </Route>  
      </Switch>
      

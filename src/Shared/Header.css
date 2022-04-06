@@ -1,3 +1,14 @@
 .headr{
     background-color:  #8CAAF7 ;
+    padding-left: 40px;
+}
+.buttonlogin{
+    background-color: rgb(101, 124, 237);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+#login-button{
+    margin-right: 5px;
 }
