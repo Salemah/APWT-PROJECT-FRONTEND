@@ -76,9 +76,7 @@ const TestReg = () => {
                                                             <img className="mr-2" src="images/registration/name.png" alt="" />
                                                             <input value={registration.name} onChange={handelChange} type="text" name="name" placeholder="Your Name" />
                                                         </div>
-                                                        <span style={{
-                                                            color: "red", fontSize: "12px", fontWeight: "bold"
-                                                        }}>{registration.errors.name}</span>
+                                                       
                                                     </div>
 
                                                     {/* Address */}

@@ -1,9 +1,48 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 import './login.css';
 
 const Login = () => {
-    const [loginData, setLoginData] = useState({});
+    const history = useHistory();
+    const [loginData, setLoginData] = useState({
+       email: '',
+       password: '',
+      errors: []
+    });
+    const handleOnChange = e => {
+        const feild = e.target.name;
+        const value = e.target.value;
+        const newData = { ...loginData };
+        newData[feild] = value;
+        setLoginData(newData);
+}
+const handleonSubmit = e => {
+    const data = {
+        ...loginData
+    }
+    console.log(data);
+
+    axios.post('http://localhost:8000/api/login', data)
+        .then(response => {
+            if (response.data.validation_errors) {
+                setLoginData({ ...loginData, errors: response.data.validation_errors });
+                swal("Warning", "Registration Error!", "error");
+            }
+            else {
+
+                swal("Success", response.data.success, "success");
+                history.push("/pt");
+
+            }
+            
+
+        });
+
+    e.preventDefault();
+}
     return (
         <div className='login-form'>
             <div className="container login-form">
@@ -13,13 +52,17 @@ const Login = () => {
                         <div className="top-header">
                         <h4>Login</h4>
                         </div>
-                        <form >
+                        <form  onSubmit={handleonSubmit}>
                             <div class="mb-3">
                                 <input type="email" 
                                 name='email' 
                                 placeholder='Enter Your Email' 
                                 class="form-control  " 
-                                id='form-input1'/>
+                                id='form-input1'
+                                onBlur={handleOnChange}/>
+                                <span style={{
+                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                }}>{loginData.errors.email}</span>
 
                             </div>
                             <div class="mb-3">
@@ -27,7 +70,11 @@ const Login = () => {
                                 name='password'
                                 placeholder='Enter Your password' 
                                  class="form-control "
-                                 id='form-input2' />
+                                 id='form-input2'
+                                 onBlur={handleOnChange} />
+                                 <span style={{
+                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                }}>{loginData.errors.password}</span>
                             </div>
                             <button type="submit" class="btn btn-primary login-submit-button">Login</button>
                         </form>

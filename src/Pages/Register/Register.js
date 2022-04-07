@@ -36,7 +36,7 @@ const Register = () => {
                 console.log(response.data);
                 if (response.data.validation_errors) {
                     setRegData({ ...regdata, errors: response.data.validation_errors });
-                    swal("Warning", "Validation Error!", "error");
+                    swal("Warning", "Registration Error!", "error");
                 } else {
 
                     swal("Success", response.data.success, "success");
@@ -91,6 +91,9 @@ const Register = () => {
                                     class="form-control  "
                                     onBlur={handleOnChange}
                                     id='form-input1' />
+                                    <span style={{
+                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                }}>{regdata.errors.email}</span>
 
                             </div>
                             <div class="mb-3">
@@ -100,6 +103,9 @@ const Register = () => {
                                     class="form-control "
                                     onBlur={handleOnChange}
                                     id='form-input2' />
+                                    <span style={{
+                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                }}>{regdata.errors.password}</span>
                             </div>
                             <div class="mb-3">
                                 <input type="password"
@@ -108,6 +114,9 @@ const Register = () => {
                                     class="form-control "
                                     onBlur={handleOnChange}
                                     id='form-input2' />
+                                    <span style={{
+                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                }}>{regdata.errors.confirmpassword}</span>
                             </div>
                             <button type="submit" class="btn btn-primary login-submit-button">Register</button>
                         </form>
