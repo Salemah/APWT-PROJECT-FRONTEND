@@ -2,16 +2,27 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './../Login/login.css';
+
+import { useHistory } from 'react-router-dom';
+import swal from 'sweetalert';
 const Register = () => {
-    const [regdata, setRegData] = useState('');
-    const [regsuccess,setRegsuccess] = useState(false);
+    const [regdata, setRegData] = useState({
+        name: '',
+        email: '',
+        username: '',
+        password: '',
+        confirmPassword: '',
+        errors: []
+    });
+    const history = useHistory();
+    const [regsuccess, setRegsuccess] = useState(false);
     const handleOnChange = e => {
         const feild = e.target.name;
         const value = e.target.value;
         const newData = { ...regdata };
         newData[feild] = value;
         setRegData(newData);
-        
+
 
     }
     const handleonSubmit = e => {
@@ -19,22 +30,22 @@ const Register = () => {
             ...regdata
         }
         console.log(regdata);
-        // const data = {
-        //     username: regdata.username,
-        //     name: regdata.rname,
-        //     email: regdata.email,
-        //     password: regdata.password,
-        //     confirmpassword: regdata.confirmpassword
-        // };
-         axios.post('http://localhost:8000/api/register/submit', data)
-            .then(res => {
-                if(res.status=200){
-                    setRegsuccess(true);
-                    setRegData('');
-                    console.log(res);
-                
+
+        axios.post('http://localhost:8000/api/register/submit', data)
+            .then(response => {
+                console.log(response.data);
+                if (response.data.validation_errors) {
+                    setRegData({ ...regdata, errors: response.data.validation_errors });
+                    swal("Warning", "Validation Error!", "error");
+                } else {
+
+                    swal("Success", response.data.success, "success");
+                    history.push("/login");
+
                 }
-            })
+
+            });
+
         e.preventDefault();
     }
 
@@ -47,56 +58,61 @@ const Register = () => {
 
                     <div class="col ">
                         <div className="top-header">
-                        <h4>Register</h4>
+                            <h4>Register</h4>
                         </div>
-                        <form  onSubmit={handleonSubmit}>
+                        <form onSubmit={handleonSubmit}>
                             <div class="mb-3">
-                                <input type="text" 
-                                name='name' 
-                                placeholder='Enter  Name' 
-                                class="form-control  " 
-                                onBlur={handleOnChange}
-                                id='form-input1'/>
+                                <input type="text"
+                                    name='name'
+                                    placeholder='Enter  Name'
+                                    class="form-control  "
+                                    onBlur={handleOnChange}
+                                    id='form-input1' />
+                                <span style={{
+                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                }}>{regdata.errors.name}</span>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text"
+                                    name='username'
+                                    placeholder='Enter  username'
+                                    class="form-control  "
+                                    onBlur={handleOnChange}
+                                    id='form-input1' />
+                                     <span style={{
+                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                }}>{regdata.errors.username}</span>
 
                             </div>
                             <div class="mb-3">
-                                <input type="text" 
-                                name='username' 
-                                placeholder='Enter  username' 
-                                class="form-control  " 
-                                onBlur={handleOnChange}
-                                id='form-input1'/>
+                                <input type="text"
+                                    name='email'
+                                    placeholder='Enter  Email'
+                                    class="form-control  "
+                                    onBlur={handleOnChange}
+                                    id='form-input1' />
 
                             </div>
                             <div class="mb-3">
-                                <input type="text" 
-                                name='email' 
-                                placeholder='Enter  Email' 
-                                class="form-control  " 
-                                onBlur={handleOnChange}
-                                id='form-input1'/>
-
+                                <input type="password"
+                                    name='password'
+                                    placeholder='Enter  password'
+                                    class="form-control "
+                                    onBlur={handleOnChange}
+                                    id='form-input2' />
                             </div>
                             <div class="mb-3">
-                                <input type="password" 
-                                name='password'
-                                placeholder='Enter  password' 
-                                 class="form-control "
-                                 onBlur={handleOnChange}
-                                 id='form-input2' />
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" 
-                                name='confirmpassword'
-                                placeholder='Enter Confirm password' 
-                                 class="form-control "
-                                 onBlur={handleOnChange}
-                                 id='form-input2' />
+                                <input type="password"
+                                    name='confirmpassword'
+                                    placeholder='Enter Confirm password'
+                                    class="form-control "
+                                    onBlur={handleOnChange}
+                                    id='form-input2' />
                             </div>
                             <button type="submit" class="btn btn-primary login-submit-button">Register</button>
                         </form>
                         <div className="not-registersection">
-                        <p>Already registerd?<Link style={{textDecoration:'none',color:'red'}} to='/login'>Login</Link></p>
+                            <p>Already registerd?<Link style={{ textDecoration: 'none', color: 'red' }} to='/login'>Login</Link></p>
                         </div>
                     </div>
 
