@@ -29,7 +29,7 @@ const handleonSubmit = e => {
         .then(response => {
             if (response.data.validation_errors) {
                 setLoginData({ ...loginData, errors: response.data.validation_errors });
-                swal("Warning", "Registration Error!", "error");
+                swal("Warning", "Login Error!", "error");
             }
             else {
 
