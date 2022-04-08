@@ -9,13 +9,15 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import TestReg from './Pages/Register/TestReg';
 import Patientds from './Pages/Patient/Patientds';
+import Ptb from './Pages/Patient/Ptb';
+import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 
 
 function App() {
   return (
     <div className="App">
      <BrowserRouter>
-     <Header></Header>
+     {/* <Header></Header> */}
      <Switch>
        <Route exact path="/">
          <Home></Home>
@@ -29,8 +31,11 @@ function App() {
        <Route path="/Register">
          <Register></Register>
        </Route>  
-       <Route path="/pt">
+       {/* <Route path="/pt">
          <Patientds></Patientds>
+       </Route>   */}
+       <Route path="/dashboard">
+         <Dashboard></Dashboard>
        </Route>  
      </Switch>
      
