@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './../Login/login.css';
+import './Register.css';
 
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -65,9 +65,9 @@ const Register = () => {
                                 <input type="text"
                                     name='name'
                                     placeholder='Enter  Name'
-                                    class="form-control  "
+                                    class="form-control  form-input "
                                     onBlur={handleOnChange}
-                                    id='form-input1' />
+                                   />
                                 <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.name}</span>
@@ -76,9 +76,9 @@ const Register = () => {
                                 <input type="text"
                                     name='username'
                                     placeholder='Enter  username'
-                                    class="form-control  "
+                                    class="form-control form-input  "
                                     onBlur={handleOnChange}
-                                    id='form-input1' />
+                                     />
                                      <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.username}</span>
@@ -88,9 +88,9 @@ const Register = () => {
                                 <input type="text"
                                     name='email'
                                     placeholder='Enter  Email'
-                                    class="form-control  "
+                                    class="form-control  form-input "
                                     onBlur={handleOnChange}
-                                    id='form-input1' />
+                                   />
                                     <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.email}</span>
@@ -100,9 +100,9 @@ const Register = () => {
                                 <input type="password"
                                     name='password'
                                     placeholder='Enter  password'
-                                    class="form-control "
+                                    class="form-control  form-input"
                                     onBlur={handleOnChange}
-                                    id='form-input2' />
+                                    />
                                     <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.password}</span>
@@ -111,9 +111,9 @@ const Register = () => {
                                 <input type="password"
                                     name='confirmpassword'
                                     placeholder='Enter Confirm password'
-                                    class="form-control "
+                                    class="form-control  form-input"
                                     onBlur={handleOnChange}
-                                    id='form-input2' />
+                                     />
                                     <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.confirmpassword}</span>

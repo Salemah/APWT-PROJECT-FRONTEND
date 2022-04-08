@@ -13,6 +13,7 @@
 
 }
 .login-submit-button{
+    
     background-color: rgb(101, 124, 237);
     color: white;
     border: none;
@@ -27,13 +28,21 @@
     background-color: rgb(24, 59, 234);
     
 }
-#form-input1{
+.form-input{
+    border:none;
     width: 80%;
+    border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 28px ;
-    margin-bottom: 28px;
-    border: 1px solid black;
+    margin-top: 13px ;
+    margin-bottom: 5px;
+    
+}
+.form-input:hover{
+ 
+    border: 2px solid rgb(1, 75, 107);
+  
+   
 }
 #form-input2{
     width: 80%;
@@ -41,8 +50,10 @@
     margin-right: auto;
     margin-top: 28px ;
     margin-bottom: 28px;
-    border: 1px solid black;
 }
 .not-registersection{
     padding: 18px 0;
+}
+.testt{
+    padding: 5px;
 }
