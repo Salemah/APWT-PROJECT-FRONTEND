@@ -46,7 +46,7 @@ const Login = () => {
                              localStorage.setItem('phone', response.data.username);
                             console.log(response.data.username);
                             swal("Success", response.data.message, "success");
-                            history.push("/patientdashboard");
+                            history.push("/dashboard");
                         }
 
 

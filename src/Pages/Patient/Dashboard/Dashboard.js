@@ -7,37 +7,39 @@ import { useRouteMatch } from 'react-router-dom';
 import Home from '../../Home/Home/Home';
 import patientimg from '../../../images/pt.png'
 import './Dashboard.css';
+import DHome from '../DashboardHome/DHome';
+import DoctorList from '../DoctorList/DoctorList';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
     return (
         <>
-           
+
             <nav class="navbar navbar-expand-lg navbar-light  headr">
                 <div class="container-fluid">
-                   <img id='patientimg' src={patientimg} alt=""/>
-                   <span class='patientdashboard'>Dashboard</span>
+                    <img id='patientimg' src={patientimg} alt="" />
+                    <span class='patientdashboard'>Dashboard</span>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                            <NavLink className="nav-link active"
-                                                 to={`${url}/home`}
-                                                // activeStyle={{
-                                                //     fontWeight: "bold",
-                                                //     color: 'red'
-                                                // }}
-                                                >
-                                                All Orders
-                                            </NavLink>
+                                <NavLink className="nav-link active" to={`${url}/home`}>
+                                    Dashboard Home
+                                </NavLink>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Doctor</a>
+                                <NavLink className="nav-link active"
+                                    to={`${url}`}>
+                                    <span class="item-text">Get AppointMent</span>
+                                </NavLink>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">AppointMent</a>
+                                <NavLink className="nav-link active"
+                                    to={`${url}/doctorlist`}>
+                                    <span class="item-text">Doctor List</span>
+                                </NavLink>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,25 +54,31 @@ const Dashboard = () => {
                             </li>
                         </ul>
                         <div  >
-                            <button id='login-button' className='buttonlogin'><Link to='/login' style={{textDecoration:'none',color:'white'}}    >Login</Link></button>
-                            <button className='buttonlogin'><Link to='/register' style={{textDecoration:'none',color:'white'}}    >Register</Link></button>
+                            <button id='login-button' className='buttonlogin'><Link to='/login' style={{ textDecoration: 'none', color: 'white' }}    >Login</Link></button>
+                            <button className='buttonlogin'><Link to='/register' style={{ textDecoration: 'none', color: 'white' }}    >Register</Link></button>
                         </div>
                     </div>
 
 
                 </div>
             </nav>
-            
+
             <div className="container-fluid">
-            <div className="row">
-                <div className="col-12">
-                  
-                    <Switch>
-                       
-                        <Route exact path={`${path}/home`}>
-                           <Home></Home>
-                        </Route>
-                        {/* <AdminRoute path={`${path}/admin/add/icecream`}>
+                <div className="row">
+                    <div className="col-12">
+
+                        <Switch>
+                            <Route exact path={path}>
+                                <DHome></DHome>
+                            </Route>
+
+                            <Route path={`${path}/home`}>
+                                <Home></Home>
+                            </Route>
+                            <Route path={`${path}/doctorlist`}>
+                                <DoctorList></DoctorList>
+                            </Route>
+                            {/* <AdminRoute path={`${path}/admin/add/icecream`}>
                             <AddProduct></AddProduct>
                         </AdminRoute>
                         <AdminRoute path={`${path}/admin/show/icecreams`}>
@@ -81,7 +89,7 @@ const Dashboard = () => {
                         </AdminRoute>
                         <AdminRoute path={`${path}/admin/makeadmin`}>
                             <MakeAdmin></MakeAdmin> */}
-                        {/* </AdminRoute>
+                            {/* </AdminRoute>
                         <Route path={`${path}/user/show/orders`}>
                             <UserOrders></UserOrders>
                         </Route>
@@ -94,11 +102,11 @@ const Dashboard = () => {
                         <Route path={`${path}/user/pay/orders`}>
                             <Pay></Pay>
                         </Route> */}
-                    </Switch>
-                   
+                        </Switch>
+
+                    </div>
                 </div>
             </div>
-        </div>
         </>
     );
 };
