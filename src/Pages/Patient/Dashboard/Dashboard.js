@@ -11,6 +11,7 @@ import DHome from '../DashboardHome/DHome';
 import DoctorList from '../DoctorList/DoctorList';
 import SingleDoctorShedule from '../SingleDoctorshedule/SingleDoctorShedule';
 import Getappointment from '../GetAppointment/Getappointment';
+import Myappointment from '../Myappointment/Myappointment';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -41,6 +42,12 @@ const Dashboard = () => {
                                 <NavLink className="nav-link active"
                                     to={`${url}/doctorlist`}>
                                     <span class="item-text">Doctor List</span>
+                                </NavLink>
+                            </li>
+                            <li class="nav-item">
+                                <NavLink className="nav-link active"
+                                    to={`${url}/myappointment`}>
+                                    <span class="item-text">My AppointMent</span>
                                 </NavLink>
                             </li>
                             <li class="nav-item dropdown">
@@ -82,6 +89,9 @@ const Dashboard = () => {
                             </Route>
                             <Route path={`${path}/getappointment`}>
                                 <Getappointment></Getappointment>
+                            </Route>
+                            <Route path={`${path}/myappointment`}>
+                                <Myappointment></Myappointment>
                             </Route>
                             {/* <Route path={`${path}/singledoctor/:id`}>
                             <SingleDoctorShedule></SingleDoctorShedule>

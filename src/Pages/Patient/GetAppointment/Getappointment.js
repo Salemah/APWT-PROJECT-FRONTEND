@@ -6,7 +6,7 @@ import './getapc.css';
 const Getappointment = () => {
     const [doctors, setDoctors] = useState([]);
     const [appointment, setAppointment] = useState('');
-    const history = useHistory();
+    
     useEffect(function () {
         axios.get("http://localhost:8000/api/doctorslot")
             .then(function (rsp) {
@@ -16,19 +16,7 @@ const Getappointment = () => {
 
             });
     }, []);
-    // appointment modal
-
-    const handleGet = id => {
-        // axios.get(`http://localhost:8000/api/student/${id}`)
-        //     .then(res => {
-        //         if (res.status = 200) {
-        //             setAppointment(res.data);
-        //             //console.log(res.data)
-        //         }
-        //     })
-        console.log(id);
-
-    }
+    
 
 
     return (
@@ -70,7 +58,7 @@ const Getappointment = () => {
             </div>
 
             <Appointmentmodal
-            updateStudent={appointment}
+            doctorslot={appointment}
             >
             </Appointmentmodal>
         </div>
