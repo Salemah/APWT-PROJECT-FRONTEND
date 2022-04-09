@@ -10,6 +10,7 @@ import Register from './Pages/Register/Register';
 import TestReg from './Pages/Register/TestReg';
 
 import Dashboard from './Pages/Patient/Dashboard/Dashboard';
+import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
 
 
 function App() {
@@ -33,7 +34,10 @@ function App() {
        
        <Route path="/dashboard">
          <Dashboard></Dashboard>
-       </Route>  
+       </Route> 
+        <Route path="/singledoctor/:id">
+         <SingleDoctorShedule></SingleDoctorShedule> 
+         </Route>  
      </Switch>
      
      

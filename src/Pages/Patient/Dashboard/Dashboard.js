@@ -9,6 +9,8 @@ import patientimg from '../../../images/pt.png'
 import './Dashboard.css';
 import DHome from '../DashboardHome/DHome';
 import DoctorList from '../DoctorList/DoctorList';
+import SingleDoctorShedule from '../SingleDoctorshedule/SingleDoctorShedule';
+import Getappointment from '../GetAppointment/Getappointment';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -31,7 +33,7 @@ const Dashboard = () => {
                             </li>
                             <li class="nav-item">
                                 <NavLink className="nav-link active"
-                                    to={`${url}`}>
+                                    to={`${url}/getappointment`}>
                                     <span class="item-text">Get AppointMent</span>
                                 </NavLink>
                             </li>
@@ -78,6 +80,12 @@ const Dashboard = () => {
                             <Route path={`${path}/doctorlist`}>
                                 <DoctorList></DoctorList>
                             </Route>
+                            <Route path={`${path}/getappointment`}>
+                                <Getappointment></Getappointment>
+                            </Route>
+                            {/* <Route path={`${path}/singledoctor/:id`}>
+                            <SingleDoctorShedule></SingleDoctorShedule>
+                            </Route> */}
                             {/* <AdminRoute path={`${path}/admin/add/icecream`}>
                             <AddProduct></AddProduct>
                         </AdminRoute>
