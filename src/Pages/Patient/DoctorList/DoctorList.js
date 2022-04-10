@@ -23,27 +23,66 @@ const DoctorList = () => {
     //     history.push(url);
     // }
     return (
-        <div>
-            <div className="container">
-                <div className="row justify-content-around">
-                    {
-                        doctors.map(dc =>
-                            <div className=" col-sm-12 col-md-4 m-1 bg-primary text-white  py-4 rounded justify" key={doctors.id}>
+        // <div>
+        //     <div className="container">
+        //         <div className="row justify-content-around">
+        //             {
+        //                 doctors.map(dc =>
+        //                     <div className=" col-sm-12 col-md-4 m-1 bg-primary text-white  py-4 rounded justify" key={doctors.id}>
 
-                                <p>{dc.name}</p>
-                                <p>{dc.email}</p>
-                                <p>{dc.department}</p>
+        //                         <p>{dc.name}</p>
+        //                         <p>{dc.email}</p>
+        //                         <p>{dc.department}</p>
                                
-                            </div>
-                        )
-                    }
+        //                     </div>
+        //                 )
+        //             }
 
+
+        //         </div>
+
+
+        //     </div>
+        // </div>
+        <div className="">
+            <div class="container">
+                <div class="row justify-content-md-center mt-5">
+
+                    <div class="col-md-12">
+                        <table class="table table-bordered border-primary">
+                            <thead>
+                                <tr>
+                                    <th >Name</th>
+                                    <th >department</th>
+                                    <th >Email</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    doctors.map(dc =>
+                                        <tr>
+                                            <td >{dc.name}</td>
+                                            <td>{dc.department}</td>
+                                            <td>{dc.email}</td>
+                                            
+                                        </tr>
+
+
+                                    )}
+
+                            </tbody>
+
+                        </table>
+                    </div>
 
                 </div>
 
-
             </div>
+
+            
         </div>
+        
     );
 };
 

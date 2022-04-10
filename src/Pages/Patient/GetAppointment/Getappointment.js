@@ -42,7 +42,7 @@ const Getappointment = () => {
                                             {/* <td>{dc.department}</td> */}
                                             <td>{dc.day}</td>
                                             <td>{dc.slot}</td>
-                                            <td> <button data-bs-toggle="modal" href="#exampleModalToggle" onClick={() => setAppointment(dc)} >  Getappointment</button> </td>
+                                            <td> <button id='getappointment-btn' data-bs-toggle="modal" href="#exampleModalToggle" onClick={() => setAppointment(dc)} >  Getappointment</button> </td>
                                         </tr>
 
 

@@ -72,7 +72,7 @@ const Dashboard = () => {
                 </div>
             </nav>
 
-            <div className="container-fluid">
+            <div className="container-fluid dasboard-patient">
                 <div className="row">
                     <div className="col-12">
 

@@ -1,15 +1,19 @@
-#getappointment-btn{
+.backgrounddsfcsd{
+   background-color:  #5DD8F8      ;
+   color: black ;
+   font-weight: bold;
+}
+#apt-deletbtn{
     background-color: #1893E6  ;
     border: none;
     padding: 6px 20px;
     color: white;
     border-radius: 4px;
     font-size: 18px;
-   
-   
+
 }
-#getappointment-btn:hover{
+#apt-deletbtn:hover{
     background-color: #1560d0  ;
-   
-   
+    
+
 }

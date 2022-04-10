@@ -1,31 +1,53 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import swal from 'sweetalert';
+import './Myappointment.css';
 
 const Myappointment = () => {
-    const [myappointment,setMyappointment] =  useState([]);
+    const [myappointment, setMyappointment] = useState([]);
     const patientid = parseInt(localStorage.getItem('id'));
+    //get all appointment 
     useEffect(function () {
         axios.get(`http://localhost:8000/api/Patient/Myappointment/${patientid}`)
-            .then(function (rsp) {
-               console.log(rsp)
+            .then(rsp=> {
                 setMyappointment(rsp.data);
-            }, function (err) {
+            },  (err)=> {
 
             });
-    }, []);
+    }, [myappointment]);
+
+    // delete appointment
+    const handledelete = id => {
+        const confirm = window.confirm("Are you sure to delete this students");
+        if (confirm) {
+            axios.post(`http://localhost:8000/api/Appointment/Delete/${id}`)
+                .then(res => {
+                    if (res) {
+                        swal("Success", res.data.success, "success");
+                    }
+                    else {
+                        swal("Warning", "Appointment delete Failed!", "error");
+                    }
+                })
+        }
+
+    }
     return (
         <div>
             <div className="container">
-                <div className="row">
+                <div className="row mt-3">
                     {
-                        myappointment.map(st=> <div className="col bg-primary text-white m-2 py-4 rounded">
-                            <p>{st.dname}</p>
-                                <p>{st.date}</p>
-                                <p>{st.dcid}</p>
-                                <button  >Delete</button>
-                                <button data-bs-toggle="modal" href="#exampleModalToggle"  >Edit</button>
+                        myappointment.map(apt => <div className="col-12 col-md-4  text-white  ">
+                            <div class="backgrounddsfcsd py-4 my-2 rounded">
+                                <p>Doctor Name : {apt.dname}</p>
+                                <p>Date: {apt.date}</p>
+                                <p>Day: {apt.day}</p>
+                                <p>Time: {apt.slot}</p>
+                                <button id='apt-deletbtn' onClick={() => handledelete(apt.id)} >Cancel</button>
+                               
+                            </div>
 
-                        </div> )
+                        </div>)
                     }
 
 
