@@ -12,6 +12,7 @@ import DoctorList from '../DoctorList/DoctorList';
 import SingleDoctorShedule from '../SingleDoctorshedule/SingleDoctorShedule';
 import Getappointment from '../GetAppointment/Getappointment';
 import Myappointment from '../Myappointment/Myappointment';
+import Myprofile from '../Myprofile/Myprofile';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -55,7 +56,10 @@ const Dashboard = () => {
                                     Dropdown
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><NavLink className="dropdown-item"
+                                    to={`${url}/myaprofile`}>
+                                    <span class="item-text">My Profile</span>
+                                </NavLink></li>
                                     <li><a class="dropdown-item" href="#">Another action</a></li>
                                     <li><hr /></li>
                                     <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -92,6 +96,9 @@ const Dashboard = () => {
                             </Route>
                             <Route path={`${path}/myappointment`}>
                                 <Myappointment></Myappointment>
+                            </Route>
+                            <Route path={`${path}/myaprofile`}>
+                                <Myprofile></Myprofile>
                             </Route>
                             {/* <Route path={`${path}/singledoctor/:id`}>
                             <SingleDoctorShedule></SingleDoctorShedule>
