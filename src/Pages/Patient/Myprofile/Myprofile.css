@@ -1,6 +1,23 @@
 .crd-body{
     margin-top: 15px;
-    background-color: aquamarine;
+    background-color: #3E9DDD ;
     padding: 35px;
-    font-size: 17px;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    
+}
+#editprofile-btn{
+    background-color: #045387  ;
+    border: none;
+    padding: 6px 20px;
+    color: white;
+    border-radius: 4px;
+    font-size: 18px;
+    
+}
+#editprofile-btn:hover{
+    background-color: #0741e0  ;
+   
+    
 }

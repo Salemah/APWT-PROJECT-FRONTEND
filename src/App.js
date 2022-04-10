@@ -7,7 +7,7 @@ import Header from './Shared/Header';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-import TestReg from './Pages/Register/TestReg';
+
 
 import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
