@@ -13,10 +13,39 @@ import SingleDoctorShedule from '../SingleDoctorshedule/SingleDoctorShedule';
 import Getappointment from '../GetAppointment/Getappointment';
 import Myappointment from '../Myappointment/Myappointment';
 import Myprofile from '../Myprofile/Myprofile';
+import axios from 'axios';
+import swal from 'sweetalert';
+import { useHistory } from 'react-router-dom';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
     const username = localStorage.getItem('username');
+    const history = useHistory();
+    const token = localStorage.getItem('token');
+
+
+    const logout = (event) => {
+        event.preventDefault();
+        const data = {
+            token: localStorage.getItem('token')
+        };
+        //console.log(data);
+        axios.post('http://localhost:8000/api/logout', data)
+            .then(response => {
+                if (response.data.status === 'success') {
+                    localStorage.removeItem('token', response.data.token);
+                    localStorage.removeItem('type', response.data.type);
+                    localStorage.removeItem('id', response.data.id);
+                    localStorage.removeItem('name', response.data.name);
+                    localStorage.removeItem('email', response.data.email);
+                    localStorage.removeItem('username', response.data.username);
+                    swal("Success", response.data.message, "success");
+                    history.push('/');
+                } else {
+                    swal("Warning", "Something wrong", "error");
+                }
+            })
+    }
 
 
     return (
@@ -67,7 +96,7 @@ const Dashboard = () => {
 
                             {
                                 username?
-                                <button className='buttonlogin'><Link to='/login' style={{ textDecoration: 'none', color: 'white' }}    >Logout</Link></button> 
+                                <button onClick={logout}  className='buttonlogin'><Link  style={{ textDecoration: 'none', color: 'white' }}    >Logout</Link></button> 
                                 :
                                 <button id='login-button' className='buttonlogin'><Link to='/login' style={{ textDecoration: 'none', color: 'white' }}    >Login</Link></button>
                             }
@@ -105,33 +134,7 @@ const Dashboard = () => {
                             <Route path={`${path}/myaprofile`}>
                                 <Myprofile></Myprofile>
                             </Route>
-                            {/* <Route path={`${path}/singledoctor/:id`}>
-                            <SingleDoctorShedule></SingleDoctorShedule>
-                            </Route> */}
-                            {/* <AdminRoute path={`${path}/admin/add/icecream`}>
-                            <AddProduct></AddProduct>
-                        </AdminRoute>
-                        <AdminRoute path={`${path}/admin/show/icecreams`}>
-                            <AllProducts />
-                        </AdminRoute>
-                        <AdminRoute path={`${path}/admin/show/orders`}>
-                            <AllOrders></AllOrders>
-                        </AdminRoute>
-                        <AdminRoute path={`${path}/admin/makeadmin`}>
-                            <MakeAdmin></MakeAdmin> */}
-                            {/* </AdminRoute>
-                        <Route path={`${path}/user/show/orders`}>
-                            <UserOrders></UserOrders>
-                        </Route>
-                        <Route path={`${path}/user/add/reviews`}>
-                            <AddReviews />
-                        </Route>
-                        <Route path={`${path}/user/show/reviews`}>
-                            <ShowReviews></ShowReviews>
-                        </Route>
-                        <Route path={`${path}/user/pay/orders`}>
-                            <Pay></Pay>
-                        </Route> */}
+                            
                         </Switch>
 
                     </div>

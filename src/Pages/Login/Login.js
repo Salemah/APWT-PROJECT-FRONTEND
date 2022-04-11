@@ -38,15 +38,15 @@ const Login = () => {
                     }
                     else {
                         if (response.data.status === "success") {
-                            localStorage.setItem('token', response.data.token,);
-                            localStorage.setItem('type', response.data.type);
+                              localStorage.setItem('token', response.data.token,);
+                             localStorage.setItem('type', response.data.type);
                             localStorage.setItem('id', response.data.id);
                              localStorage.setItem('email', response.data.email);
                              localStorage.setItem('name', response.data.name);
                              localStorage.setItem('username', response.data.username);
                             console.log(response.data.username);
                             swal("Success", response.data.message, "success");
-                            history.push("/dashboard");
+                            history.redirect("/dashboard");
                         }
 
 

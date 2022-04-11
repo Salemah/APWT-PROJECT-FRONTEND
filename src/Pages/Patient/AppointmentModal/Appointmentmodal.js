@@ -14,7 +14,7 @@ const [appointment, setAppointment] = useState({
     const [user, setUser] = useState([]);
     const patientid = parseInt(localStorage.getItem('id'));
     const patientname = localStorage.getItem('username');
-    const email = localStorage.getItem('email');
+    const pemail = localStorage.getItem('email');
 
 
 
@@ -31,7 +31,7 @@ const [appointment, setAppointment] = useState({
     }
     const handleaddservice = e => {
         const data = {
-            ...appointment, dcid, dname, patientid, patientname, slot, day,
+            ...appointment, dcid, dname, patientid, patientname, slot, day,pemail
         }
         axios.post(`http://localhost:8000/api/Patient/Appointmentsubmit`, data)
             .then(res => {
@@ -76,7 +76,7 @@ const [appointment, setAppointment] = useState({
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                                     <input type="text" name='email' className="form-control"
-                                        value={email} />
+                                        value={pemail} />
 
                                 </div>
                                 <div className="mb-3">

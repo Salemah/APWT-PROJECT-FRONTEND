@@ -32,14 +32,14 @@ function App() {
          <Register></Register>
        </Route>  
        
+       
        {
          id ?<Route path="/dashboard">
          <Dashboard></Dashboard>
-       </Route>
-       : 
-       <Route path="/login">
+       </Route> : 
+    
          <Login></Login>
-       </Route> 
+      
         }
         <Route path="/singledoctor/:id">
          <SingleDoctorShedule></SingleDoctorShedule> 
