@@ -42,7 +42,7 @@ const [appointment, setAppointment] = useState({
                 else {
 
                     swal("Success", res.data.success, "success");
-                    history.push(`/home`);
+                   
 
                 }
             }

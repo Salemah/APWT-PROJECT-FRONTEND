@@ -17,16 +17,16 @@ const Myappointment = () => {
     //get all appointment 
     useEffect(function () {
         axios.get(`http://localhost:8000/api/Patient/Myappointment/${patientid}`)
-            .then(rsp=> {
+            .then(rsp => {
                 setMyappointment(rsp.data);
-            },  (err)=> {
+            }, (err) => {
 
             });
     }, [myappointment]);
 
     // delete appointment
     const handledelete = id => {
-        const confirm = window.confirm("Are you sure to delete this students");
+        const confirm = window.confirm("Are you sure to delete this Appointment");
         if (confirm) {
             axios.post(`http://localhost:8000/api/Appointment/Delete/${id}`)
                 .then(res => {
@@ -42,42 +42,38 @@ const Myappointment = () => {
     }
     return (
         <div>
-            {loading ?<div className="loading-bg">
+            {loading ? <div className="loading-bg">
                 <div className="d-flex justify-content-center align-items-center text-center" >
                     <div className="">
                         <div className="">
-                            <h5 className="fw-bold text-uppercase" style={{ color: "red",marginTop:'5px'}}>
-                                
-                                    <RingLoader className="App" size={60} color={"#0596F7"} loading={loading} />
-                                    {/* <ClockLoader className="App" size={10} color={"red"} loading={loading} /> */}
-                                
+                            <h5 className="fw-bold text-uppercase" style={{ color: "red", marginTop: '5px' }}>
+
+                                <RingLoader className="App" size={60} color={"#0596F7"} loading={loading} />
+                                {/* <ClockLoader className="App" size={10} color={"red"} loading={loading} /> */}
+
                             </h5>
                         </div>
                     </div>
                 </div>
             </div> :
 
-            <div className="container">
-                <div className="row mt-3">
-                    {
-                        myappointment.map(apt => <div className="col-12 col-md-4  text-white  ">
-                            <div class="backgrounddsfcsd py-4 my-2 rounded">
-                                <p>Doctor Name : {apt.dname}</p>
-                                <p>Date: {apt.date}</p>
-                                <p>Day: {apt.day}</p>
-                                <p>Time: {apt.slot}</p>
-                                <button id='apt-deletbtn' onClick={() => handledelete(apt.id)} >Cancel</button>
-                               
-                            </div>
+                <div className="container">
+                    <div className="row mt-3">
+                        {
+                            myappointment.map(apt => <div className="col-12 col-md-4  text-white  ">
+                                <div class="backgrounddsfcsd py-4 my-2 rounded">
+                                    <p>Doctor Name : {apt.dname}</p>
+                                    <p>Date: {apt.date}</p>
+                                    <p>Day: {apt.day}</p>
+                                    <p>Time: {apt.slot}</p>
+                                    <button id='apt-deletbtn' onClick={() => handledelete(apt.id)} >Cancel</button>
 
-                        </div>)
-                    }
+                                </div>
 
-
+                            </div>)
+                        }
+                    </div>
                 </div>
-
-
-            </div>
             }
         </div>
     );

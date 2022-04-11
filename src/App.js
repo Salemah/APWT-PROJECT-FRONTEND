@@ -11,7 +11,7 @@ import Register from './Pages/Register/Register';
 
 import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
-
+const id = parseInt(localStorage.getItem('id'));
 
 function App() {
   return (
@@ -32,9 +32,15 @@ function App() {
          <Register></Register>
        </Route>  
        
-       <Route path="/dashboard">
+       {
+         id ?<Route path="/dashboard">
          <Dashboard></Dashboard>
+       </Route>
+       : 
+       <Route path="/login">
+         <Login></Login>
        </Route> 
+        }
         <Route path="/singledoctor/:id">
          <SingleDoctorShedule></SingleDoctorShedule> 
          </Route>  

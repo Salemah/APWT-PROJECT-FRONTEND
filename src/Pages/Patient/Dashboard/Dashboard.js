@@ -67,7 +67,7 @@ const Dashboard = () => {
 
                             {
                                 username?
-                                <button className='buttonlogin'><Link to='' style={{ textDecoration: 'none', color: 'white' }}    >Logout</Link></button> 
+                                <button className='buttonlogin'><Link to='/login' style={{ textDecoration: 'none', color: 'white' }}    >Logout</Link></button> 
                                 :
                                 <button id='login-button' className='buttonlogin'><Link to='/login' style={{ textDecoration: 'none', color: 'white' }}    >Login</Link></button>
                             }

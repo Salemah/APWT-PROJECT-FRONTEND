@@ -23,7 +23,7 @@ const Login = () => {
         const data = {
             ...loginData
         }
-        console.log(data);
+        
 
         axios.post('http://localhost:8000/api/login', data)
             .then(response => {
