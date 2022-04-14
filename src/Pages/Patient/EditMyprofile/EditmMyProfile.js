@@ -15,11 +15,7 @@ const EditmMyProfile = ({editprofile}) => {
         const newdata = { ...updateprofile };
         newdata[feild] = value;
         setUpdateprofile(newdata);
-
-
-
-
-    }
+}
     const handleaddservice = e => {
         
         const data = {
@@ -31,7 +27,7 @@ const EditmMyProfile = ({editprofile}) => {
                 
                 if (res.data.validation_errors) {
                     setUpdateprofile({ ...updateprofile, errors: res.data.validation_errors });
-                    swal("Warning", "update Failed!", "error");
+                    swal("Warning", "No Change Your Profile", "error");
                 }
                 else {
 

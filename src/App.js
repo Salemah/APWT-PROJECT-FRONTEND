@@ -12,6 +12,7 @@ import Register from './Pages/Register/Register';
 import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
 const id = parseInt(localStorage.getItem('id'));
+const token = localStorage.getItem('token');
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
        
        
        {
-         id ?<Route path="/dashboard">
+         token ?<Route path="/dashboard">
          <Dashboard></Dashboard>
        </Route> : 
     

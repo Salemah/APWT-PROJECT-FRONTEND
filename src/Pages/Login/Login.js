@@ -46,7 +46,7 @@ const Login = () => {
                              localStorage.setItem('username', response.data.username);
                             console.log(response.data.username);
                             swal("Success", response.data.message, "success");
-                            history.redirect("/dashboard");
+                            history.push("/dashboard");
                         }
 
 
