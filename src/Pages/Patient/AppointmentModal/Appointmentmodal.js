@@ -35,7 +35,7 @@ const [appointment, setAppointment] = useState({
         }
         axios.post(`http://localhost:8000/api/Patient/Appointmentsubmit`, data)
             .then(res => {
-                if (res.data.validation_errors) {
+                if (res.data.validation_errors){
                     setAppointment({ ...appointment, errors: res.data.validation_errors });
                     swal("Warning", "Appointment Failed!", "error");
                 }
