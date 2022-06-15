@@ -1,0 +1,14 @@
+.doctor-section {
+    border: 5px solid rgba(184, 181, 181, 0.507);
+    margin-bottom: 20px;
+}
+.doctor-section :hover {
+    
+}
+.doctor-section img{
+    width: 100%;
+    
+}
+.doctor-details{
+    margin-top: -76px;
+}

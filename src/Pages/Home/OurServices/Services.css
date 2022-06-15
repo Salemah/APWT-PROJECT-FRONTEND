@@ -1,0 +1,41 @@
+.our-service {
+    background: url(../../../images/5.png);
+}
+
+/* .service {
+    padding: 15px;
+    background-color: rgba(207, 209, 210, 0.516);
+    border-radius: 10px;
+    margin-bottom: 20px;
+} */
+.services{
+    padding: 15px;
+    background-color: rgba(207, 209, 210, 0.516);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+     transition: margin 0.3s ease-in-out; 
+
+}
+.services:hover {
+    border-bottom: 2px solid blue;
+    cursor:pointer;
+    margin-top: -5px;
+}
+
+.service img {
+    width: 20%;
+    padding: 10px;
+}
+
+.service h4 {
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.service p {
+    font-size: 14px;
+    color: rgb(79, 71, 71);
+
+}

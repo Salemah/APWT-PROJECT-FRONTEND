@@ -11,6 +11,7 @@ import Register from './Pages/Register/Register';
 
 import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
+import Footer from './Shared/Footer';
 const id = parseInt(localStorage.getItem('id'));
 const token = localStorage.getItem('token');
 
@@ -47,7 +48,7 @@ function App() {
          </Route>  
      </Switch>
      
-     
+     <Footer></Footer>
      </BrowserRouter>
       
     </div>

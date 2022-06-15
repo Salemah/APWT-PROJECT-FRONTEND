@@ -1,0 +1,67 @@
+.section{
+    padding: 50px;
+    background-color: #1972B3;
+    text-align: left;
+    margin-bottom: 13px;
+    transition: all 0.3s ease-in-out;
+  
+}
+.section:hover{
+    transform: scale(0.9);
+    background-color: #8d9194;
+    
+  
+}
+.section h3{
+   color: rgb(0, 0, 0);
+   
+ }
+.section p{
+   margin: 5px 0;
+  
+}
+.section img{
+    width: 20%;
+    margin: 6px 0;
+  
+}
+.line{
+    height: 2px;
+    width: 100%;
+    background-color: rgb(102, 101, 101);
+    margin: 8px 0;
+
+
+}
+@media only screen and (max-width: 767px) {
+
+    .promotion {
+       background-color: #1972B3;
+       padding: 20px;
+    }
+    
+    .section{
+        background-color: aliceblue;
+        margin-bottom: 30px;
+        transition: all 0.3s ease-in-out;
+    }
+    .section:hover{
+        transform: scale(1.08);
+        border-radius: 9px;
+        background-color: #8d9194;
+        
+      
+    }
+    .section h3{
+        color: rgb(0, 0, 0);
+        
+      }
+     .section p{
+        color: rgb(0, 0, 0);
+    
+       
+     }
+
+    
+
+}
