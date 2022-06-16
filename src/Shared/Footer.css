@@ -1,47 +1,63 @@
 .footer-section {
-    padding: 7rem 0;
-    background-color: #000;
-    color: #777;
+    padding: 40px;
+   background-color: #062E4F;
+   box-shadow: 0px 0 10px rgba(0, 0, 0, 1.8);
+  
+   
 }
+.footer-bottom-logo {
 
-.footer-section1 .footer-site-logo {
-    font-size: 1.5rem;
-    color: #fff;
+    font-size: 50px;
+    margin-bottom: 20px;
 }
+.footer-left{
+   
+}
+.footer-left p {
 
-.footer-section .nav-links li {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    text-align: justify;
+    
+}
+.nav-links-page{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.nav-links-page li{
     margin-bottom: 10px;
 }
+.nav-links-page li a {
+    text-decoration: none;
+    font-size: 19px;
+    line-height: 20px;
+    color: rgb(255, 255, 255);
+  
 
-.footer-section .nav-links li a {
-    color: gray;
+}
+.social-icon{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    justify-content: space-around;
 }
 
-.footer-section .nav-links li a:hover {
-    color: #fff;
+.social-icon li a {
+   color: #00bee9 ;
+}
+.contact-us{
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    
+}
+.copyright{
+    padding: 20px;
+    background-color: gray;
 }
 
-.footer-section .btn.btn-tertiary {
-    background-color: #e42c64;
-    color: #fff;
-    border-radius: 30px;
-    border: none;
-    padding: 10px 20px;
-}
 
-.footer-section .social li {
-    display: inline-block;
-}
-
-.footer-section .social li a {
-    color: gray;
-    padding: 7px;
-}
-
-.footer-section .social li a:hover {
-    color: #fff;
-}
-
-.footer-section .copyright {
-    border-top: 1px solid #404040;
-}
