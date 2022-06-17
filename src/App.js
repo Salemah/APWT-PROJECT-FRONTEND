@@ -7,19 +7,17 @@ import Header from './Shared/Header';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-
-
 import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
-import Footer from './Shared/Footer';
-const id = parseInt(localStorage.getItem('id'));
-const token = localStorage.getItem('token');
+import AddDoctor from './Pages/Admin/Adddoctor/AddDoctor';
+// const id = parseInt(localStorage.getItem('id'));
+// const token = localStorage.getItem('token');
 
 function App() {
   return (
     <div className="App">
      <BrowserRouter>
-     {/* <Header></Header> */}
+   
      <Switch>
        <Route exact path="/">
          <Home></Home>
@@ -33,22 +31,20 @@ function App() {
        <Route path="/Register">
          <Register></Register>
        </Route>  
+       <Route path="/AddDoctor">
+         <AddDoctor></AddDoctor>
+       </Route>  
        
        
-       {
-         token ?<Route path="/dashboard">
+      <Route path="/dashboard">
          <Dashboard></Dashboard>
-       </Route> : 
-    
-         <Login></Login>
-      
-        }
+       </Route>
         <Route path="/singledoctor/:id">
          <SingleDoctorShedule></SingleDoctorShedule> 
          </Route>  
      </Switch>
      
-     <Footer></Footer>
+   
      </BrowserRouter>
       
     </div>

@@ -9,8 +9,9 @@ const Register = () => {
     const [regdata, setRegData] = useState({
         name: '',
         email: '',
-        username: '',
         password: '',
+        phone: '',
+        usertype: 'doctor',
         confirmPassword: '',
         errors: []
     });
@@ -29,15 +30,22 @@ const Register = () => {
         const data = {
             ...regdata
         }
-        console.log(regdata);
+  
 
-        axios.post('http://localhost:8000/api/register/submit', data)
+        axios.post('http://localhost:8000/api/registration', data)
             .then(response => {
                 console.log(response.data);
                 if (response.data.validation_errors) {
                     setRegData({ ...regdata, errors: response.data.validation_errors });
-                    swal("Warning", "Registration Error!", "error");
-                } else {
+                    swal("Warning", response.data.validation_errors, "error");
+                } 
+                
+                else if(response.data.duplicate){
+                    setRegData({ ...regdata, errors: response.data.duplicate });
+                    swal("Warning", response.data.duplicate, "error");
+                }
+                
+                else {
 
                     swal("Success", response.data.success, "success");
                     history.push("/login");
@@ -72,18 +80,7 @@ const Register = () => {
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.name}</span>
                             </div>
-                            <div class="mb-3">
-                                <input type="text"
-                                    name='username'
-                                    placeholder='Enter  username'
-                                    class="form-control form-input  "
-                                    onBlur={handleOnChange}
-                                     />
-                                     <span style={{
-                                    color: "red", fontSize: "12px", fontWeight: "bold"
-                                }}>{regdata.errors.username}</span>
-
-                            </div>
+                            
                             <div class="mb-3">
                                 <input type="text"
                                     name='email'
@@ -97,6 +94,18 @@ const Register = () => {
 
                             </div>
                             <div class="mb-3">
+                                <input type="number"
+                                    name='phone'
+                                    placeholder='Enter  phonenumber'
+                                    class="form-control  form-input "
+                                    onBlur={handleOnChange}
+                                   />
+                                    <span style={{
+                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                }}>{regdata.errors.phonenumber}</span>
+
+                            </div>
+                            <div class="mb-3">
                                 <input type="password"
                                     name='password'
                                     placeholder='Enter  password'
@@ -107,6 +116,7 @@ const Register = () => {
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.password}</span>
                             </div>
+                            
                             <div class="mb-3">
                                 <input type="password"
                                     name='confirmpassword'

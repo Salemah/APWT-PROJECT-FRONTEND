@@ -33,12 +33,12 @@ const Dashboard = () => {
         axios.post('http://localhost:8000/api/logout', data)
             .then(response => {
                 if (response.data.status === 'success') {
-                    localStorage.removeItem('token', response.data.token);
-                    localStorage.removeItem('type', response.data.type);
+                   
+                    localStorage.removeItem(' usertype', response.data.usertype);
+                    localStorage.removeItem('userId', response.data.userId);
                     localStorage.removeItem('id', response.data.id);
                     localStorage.removeItem('name', response.data.name);
                     localStorage.removeItem('email', response.data.email);
-                    localStorage.removeItem('username', response.data.username);
                     swal("Success", response.data.message, "success");
                     history.push('/');
                 } else {
