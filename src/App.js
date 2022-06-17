@@ -6,10 +6,12 @@ import { Route } from 'react-router-dom';
 import Header from './Shared/Header';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
-import Register from './Pages/Register/Register';
+import Registration from './Pages/Register/Registration';
 import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
 import AddDoctor from './Pages/Admin/Adddoctor/AddDoctor';
+import Login2 from './Pages/Login/Login2';
+import Lgg from './Pages/Login/Lggg';
 // const id = parseInt(localStorage.getItem('id'));
 // const token = localStorage.getItem('token');
 
@@ -26,10 +28,13 @@ function App() {
          <Home></Home>
        </Route>  
        <Route path="/login">
-         <Login></Login>
+         <Lgg></Lgg>
+       </Route>  
+       <Route path="/log2">
+         <Login2></Login2>
        </Route>  
        <Route path="/Register">
-         <Register></Register>
+         <Registration></Registration>
        </Route>  
        <Route path="/AddDoctor">
          <AddDoctor></AddDoctor>

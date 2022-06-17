@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Register.css';
-
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import swal from 'sweetalert';
-const Register = () => {
+import "./Registration.css";
+
+const Registration = () => {
     const [regdata, setRegData] = useState({
         name: '',
         email: '',
@@ -56,32 +56,28 @@ const Register = () => {
 
         e.preventDefault();
     }
-
-
-
     return (
-        <div className='login-form'>
-            <div className="container mt-5 ">
-                <div className="row align-items-center login-col">
-
-                    <div class="col ">
-                        <div className="top-header">
-                            <h4>Register</h4>
-                        </div>
-                        <form onSubmit={handleonSubmit}>
-                            <div class="mb-3">
+        <div className='registration-bg'>
+            <div className="container testt d-flex align-items-center m-auto" style={{ minHeight: "100vh" }}>
+                <div className="form-area my-4">
+                    <h2 className='mb-3 text-white'>Registration</h2>
+                    <form action="" onSubmit={handleonSubmit}>
+                        <div className="row">
+                            <div className="col-md-6 my-2">
+                                <div>
                                 <input type="text"
                                     name='name'
                                     placeholder='Enter  Name'
-                                    class="form-control  form-input "
+                                    class="form-control"
                                     onBlur={handleOnChange}
                                    />
                                 <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.name}</span>
+                                </div>
                             </div>
-                            
-                            <div class="mb-3">
+                            <div className="col-md-6 my-2">
+                                <div>
                                 <input type="text"
                                     name='email'
                                     placeholder='Enter  Email'
@@ -91,9 +87,13 @@ const Register = () => {
                                     <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.email}</span>
-
+                                </div>
                             </div>
-                            <div class="mb-3">
+                        </div>
+
+                        <div className="row">
+                            <div className="col-md-6 my-2">
+                                <div>
                                 <input type="number"
                                     name='phone'
                                     placeholder='Enter  phonenumber'
@@ -103,9 +103,10 @@ const Register = () => {
                                     <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.phonenumber}</span>
-
+                                </div>
                             </div>
-                            <div class="mb-3">
+                            <div className="col-md-6 my-2">
+                                <div>
                                 <input type="password"
                                     name='password'
                                     placeholder='Enter  password'
@@ -115,9 +116,13 @@ const Register = () => {
                                     <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.password}</span>
+                                </div>
                             </div>
-                            
-                            <div class="mb-3">
+                        </div>
+
+                        <div className="row">
+                            <div className="col-md-6  my-2">
+                                <div>
                                 <input type="password"
                                     name='confirmpassword'
                                     placeholder='Enter Confirm password'
@@ -127,18 +132,33 @@ const Register = () => {
                                     <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.confirmpassword}</span>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-primary login-submit-button">Register</button>
-                        </form>
-                        <div className="not-registersection">
-                            <p>Already registerd?<Link style={{ textDecoration: 'none', color: 'red' }} to='/login'>Login</Link></p>
+                            
                         </div>
-                    </div>
 
+                        <div className="row">
+                            <div className="col-md-6  my-2">
+                                <div>
+                                    <button type='submit' className='btn btn-primary w-100' >Submit</button>
+                                </div>
+                            </div>
+                            <div className="col-md-6 my-2" >
+                                <div className='' >
+                                    <div className="d-flex justify-content-end" >
+                                        <span style={{ color: "white", fontWeight: "bold" }}>Have an account?</span>
+                                    </div>
+                                    <div className="d-flex justify-content-end">
+                                        <Link className="fw-bold login-link" to="/login">Please login here</Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Register;
+export default Registration;
