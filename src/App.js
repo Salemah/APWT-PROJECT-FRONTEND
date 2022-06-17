@@ -1,17 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+
 import { BrowserRouter } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import Header from './Shared/Header';
 import Home from './Pages/Home/Home/Home';
-import Login from './Pages/Login/Login';
 import Registration from './Pages/Register/Registration';
 import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
 import AddDoctor from './Pages/Admin/Adddoctor/AddDoctor';
-import Login2 from './Pages/Login/Login2';
 import Login3 from './Pages/Login/Login3';
+import AdminDashboard from './Pages/Admin/Dashboard/AdminDashboard';
+
+
 
 // const id = parseInt(localStorage.getItem('id'));
 // const token = localStorage.getItem('token');
@@ -42,6 +41,9 @@ function App() {
        
       <Route path="/dashboard">
          <Dashboard></Dashboard>
+       </Route>
+      <Route path="/admindashboard">
+         <AdminDashboard></AdminDashboard>
        </Route>
         <Route path="/singledoctor/:id">
          <SingleDoctorShedule></SingleDoctorShedule> 

@@ -50,7 +50,7 @@ const Login3 = () => {
                             history.push("/dashboard");
                            }
                            else if (localStorage.getItem('usertype')=='admin'){
-                            history.push("/dashboard");
+                            history.push("/admindashboard");
                            }
                            else{
                             history.push("/AddDoctor");
