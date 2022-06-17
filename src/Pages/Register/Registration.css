@@ -1,30 +1,34 @@
 .registration-bg{
     min-height: 100vh;
     width: 100%;
-    background-image: url('../../images/registration-bg.jpg');
+    background-image: url('../../images/log2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
 }
+.reg-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .form-area{
     padding: 40px;
-    border-radius: 6px;
-    border: 1px solid #3e4a8b;
-    background-color: #303865;
+    background-color: #F24C4C;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .login-link {
-    color: aqua;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     transition: 0.5s;
 }
 .login-link:hover {
-    color: blue;
+    color: rgb(255, 255, 255);
 }
-/* .testt{
+.reg-bottom{
     display: flex;
     justify-content: center;
     align-items: center;
-    
-} */
+}
+

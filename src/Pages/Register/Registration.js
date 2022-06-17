@@ -11,7 +11,7 @@ const Registration = () => {
         email: '',
         password: '',
         phone: '',
-        usertype: 'doctor',
+        usertype: 'patient',
         confirmPassword: '',
         errors: []
     });
@@ -58,84 +58,81 @@ const Registration = () => {
     }
     return (
         <div className='registration-bg'>
-            <div className="container testt d-flex align-items-center m-auto" style={{ minHeight: "100vh" }}>
+            <div className="container reg-body " style={{ minHeight: "100vh" }}>
                 <div className="form-area my-4">
-                    <h2 className='mb-3 text-white'>Registration</h2>
+                    <h2 className='mb-3 text-center  text-white'>Registration</h2>
                     <form action="" onSubmit={handleonSubmit}>
                         <div className="row">
                             <div className="col-md-6 my-2">
                                 <div>
-                                <input type="text"
-                                    name='name'
-                                    placeholder='Enter  Name'
-                                    class="form-control"
-                                    onBlur={handleOnChange}
-                                   />
-                                <span style={{
-                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                    <input type="text" 
+                                     name='name'
+                                    placeholder=' Name' 
+                                    className='form-control'
+                                     onBlur={handleOnChange} />
+                                      <span style={{
+                                    color: "white", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.name}</span>
                                 </div>
                             </div>
                             <div className="col-md-6 my-2">
                                 <div>
-                                <input type="text"
-                                    name='email'
-                                    placeholder='Enter  Email'
-                                    class="form-control  form-input "
-                                    onBlur={handleOnChange}
-                                   />
-                                    <span style={{
-                                    color: "red", fontSize: "12px", fontWeight: "bold"
-                                }}>{regdata.errors.email}</span>
+                                    <input type="number"
+                                     name='phone'
+                                     placeholder=' Phone'
+                                      className='form-control'
+                                     onBlur={handleOnChange} />
+                                     <span style={{
+                                    color: "white", fontSize: "12px", fontWeight: "bold"
+                                }}>{regdata.errors.phone}</span>
                                 </div>
                             </div>
+                          
                         </div>
 
                         <div className="row">
+                           
                             <div className="col-md-6 my-2">
                                 <div>
-                                <input type="number"
-                                    name='phone'
-                                    placeholder='Enter  phonenumber'
-                                    class="form-control  form-input "
-                                    onBlur={handleOnChange}
-                                   />
-                                    <span style={{
-                                    color: "red", fontSize: "12px", fontWeight: "bold"
-                                }}>{regdata.errors.phonenumber}</span>
+                                    <input type="email" 
+                                     name='email'
+                                    placeholder=' Email' 
+                                    className='form-control w-100' 
+                                     onBlur={handleOnChange}/>
+                                     <span style={{
+                                    color: "white", fontSize: "12px", fontWeight: "bold"
+                                }}>{regdata.errors.email}</span>
                                 </div>
                             </div>
-                            <div className="col-md-6 my-2">
+                            <div className="col-md-6  my-2">
                                 <div>
-                                <input type="password"
-                                    name='password'
-                                    placeholder='Enter  password'
-                                    class="form-control  form-input"
-                                    onBlur={handleOnChange}
-                                    />
-                                    <span style={{
-                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                    <input type="password" 
+                                      name='password'
+                                    placeholder='Password' className='form-control'
+                                     onBlur={handleOnChange} />
+                                      <span style={{
+                                    color: "white", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.password}</span>
                                 </div>
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="col-md-6  my-2">
+                            
+                            <div className="col-md-6 my-2">
                                 <div>
-                                <input type="password"
-                                    name='confirmpassword'
-                                    placeholder='Enter Confirm password'
-                                    class="form-control  form-input"
-                                    onBlur={handleOnChange}
-                                     />
-                                    <span style={{
-                                    color: "red", fontSize: "12px", fontWeight: "bold"
+                                    <input type="password" 
+                                     name='confirmpassword'
+                                    placeholder='Confirm Password' className='form-control'
+                                 
+                                     onBlur={handleOnChange} />
+                                       <span style={{
+                                    color: "white", fontSize: "12px", fontWeight: "bold"
                                 }}>{regdata.errors.confirmpassword}</span>
                                 </div>
                             </div>
-                            
                         </div>
+
 
                         <div className="row">
                             <div className="col-md-6  my-2">
@@ -143,16 +140,17 @@ const Registration = () => {
                                     <button type='submit' className='btn btn-primary w-100' >Submit</button>
                                 </div>
                             </div>
-                            <div className="col-md-6 my-2" >
+                          
+                        </div>
+                        <div className="col-md-12 my-2" >
                                 <div className='' >
-                                    <div className="d-flex justify-content-end" >
+                                    <div className="reg-bottom " >
                                         <span style={{ color: "white", fontWeight: "bold" }}>Have an account?</span>
                                     </div>
-                                    <div className="d-flex justify-content-end">
+                                    <div className="reg-bottom ">
                                         <Link className="fw-bold login-link" to="/login">Please login here</Link>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </form>
                 </div>

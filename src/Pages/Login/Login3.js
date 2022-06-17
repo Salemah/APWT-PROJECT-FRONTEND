@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
-import './login.css';
+import './Login3.css';
 
-const Login = () => {
+const Login3 = () => {
     const history = useHistory();
+    
     const [loginData, setLoginData] = useState({
         email: '',
         password: '',
@@ -50,7 +50,7 @@ const Login = () => {
                             history.push("/dashboard");
                            }
                            else if (localStorage.getItem('usertype')=='admin'){
-                            history.push("/AddDoctor");
+                            history.push("/dashboard");
                            }
                            else{
                             history.push("/AddDoctor");
@@ -67,50 +67,66 @@ const Login = () => {
 
         e.preventDefault();
     }
-    return (
-        <div className='login-form'>
-            <div className="container login-form">
-                <div class="row align-items-center login-col">
 
-                    <div class="col ">
-                        <div className="top-header">
-                            <h4>Login</h4>
-                        </div>
-                        <form onSubmit={handleonSubmit}>
-                            <div class="mb-3">
-                                <input type="email"
-                                    name='email'
-                                    placeholder='Enter Your Email'
-                                    class="form-control  "
-                                    id='form-input1'
-                                    onBlur={handleOnChange} />
-                                <span style={{
+    return (
+      
+            <div className="login-page">
+            <div className="login-body">
+                <div className="login-main">
+                    <div className="login-form">
+                        <div className="row">
+                            <div className="col-12 login-main-body">
+                                <div>
+                                <div className="">
+                                        
+                                        <h3 className="ml-auto my-5 text-center" style={{ color: "white" }}>LOGIN</h3>
+                                    </div>
+                                    <form onSubmit={handleonSubmit} >
+                                       
+                                        <div className="mb-3">
+                                            <input type="email" name="email" onChange={handleOnChange} value={loginData.email} placeholder="Enter Your Email" />
+                                            <br />
+                                            <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{loginData.errors.email}</span>
+                                        </div>
 
-                            </div>
-                            <div class="mb-3">
-                                <input type="password"
-                                    name='password'
-                                    placeholder='Enter Your password'
-                                    class="form-control "
-                                    id='form-input2'
-                                    onBlur={handleOnChange} />
-                                <span style={{
+                                        <div className="mb-3">
+                                            <input type="password" name="password" onChange={handleOnChange} value={loginData.password} placeholder="Enter Your Password" /> <br />
+                                            <span style={{
                                     color: "red", fontSize: "12px", fontWeight: "bold"
                                 }}>{loginData.errors.password}</span>
+                                        </div>
+
+                                        <div className="mb-3 d-flex justify-content-center">
+                                            <button type="submit" className="login-button font-weight-bold">Login</button>
+                                        </div>
+                                    </form>
+
+                                   
+                                    <div className="mb-3 d-flex justify-content-center">
+                                        <div>
+                                            <div className='reg-link-user'>
+                                                <span>Are you new user?</span> <br />
+                                            </div>
+                                            <div className="ml-auto">
+                                                <div>
+                                                    <Link className=" reg-link" to="/registration">create an account</Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-primary login-submit-button">Login</button>
-                        </form>
-                        <div className="not-registersection">
-                            <p>Not registerd?<Link style={{ textDecoration: 'none', color: 'red' }} to='/register'>Create an account</Link></p>
                         </div>
                     </div>
-
                 </div>
             </div>
-        </div>
+            </div>
+      
     );
 };
 
-export default Login;
+export default Login3;
+
+

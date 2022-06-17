@@ -1,4 +1,4 @@
-.backgroundArea {
+.login-page {
     height: 100vh;
     width: 100%;
     background-image: url('../../images/log2.jpg');
@@ -6,10 +6,10 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    /* opacity: 0.7; */
+    
 }
 
-.contentArea {
+.login-body{
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -17,18 +17,19 @@
     left: 0;
 }
 
-.main {
+.login-main {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-area {
-    height: 85vh;
-    width: 80%;
+.login-form {
+    height: 65vh;
+    width: 55%;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(93, 103, 208, 0.73);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .login-banner .img-area img {
@@ -37,61 +38,64 @@
     border-radius: 20px 0 0 20px;
 }
 
-input,select {
-    padding: 3px 15px;
-    border-radius: 20px;
+input {
+    padding: 7px 20px;
+    border-radius: 10px;
     border: 2px solid transparent;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255);
     color: black;
     font-weight: 600;
     transition: 0.5s;
 }
 input:hover{
-    border: 2px solid blue; 
+    background-color: rgb(198, 209, 247);
+    border: 2px solid rgb(0, 0, 0); 
+    color: rgb(0, 0, 0);
 }
 input:focus {
     outline: none !important;
-    border: 2px solid red;
-    /* box-shadow: 2px 2px 2px 2px gray; */
+    border: 2px solid rgb(0, 0, 0);
     background-color: rgba(255, 255, 255);
-    color: red;
+    color: rgb(0, 0, 0);
 }
 
-.login-content {
+.login-main-body {
     display: flex;
     justify-content: center;
     align-items: center;
   
 }
 
-.login-content img {
-    height: 40px;
-    width: 40px;
-}
 
 .login-button {
-    background-image: linear-gradient(90deg, aqua, blue);
-    border-radius: 20px;
-    padding: 5px 30px;
-    color: black;
+    background-color: rgba(110, 110, 234, 0.811);
+    border-radius: 10px;
+    padding: 7px 70px;
+    color: rgb(255, 255, 255);
     transition: 0.5s;
-    border: 2px solid blue;
+    border: 2px solid rgb(145, 92, 140);
 }
 
 .login-button:hover {
-    /* background-image: linear-gradient(45deg, blue, aqua); */
+    background-color: rgb(110, 110, 234);
     color: white;
     border: 2px solid white;
 }
+.reg-link-user{
+    color: rgb(164, 4, 60);
+    font-size: 18px;
+    font-weight: bold;
+}
 
 .reg-link {
-    color: black;
+    font-size: 18px;
+    color: rgb(164, 4, 60);
     text-decoration: underline;
     transition: 0.5s;
 }
 
 .reg-link:hover {
-    color: blue;
+    color: rgb(255, 255, 255);
     text-decoration: underline;
 }
 

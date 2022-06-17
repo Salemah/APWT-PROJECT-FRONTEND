@@ -52,8 +52,8 @@ const AddDoctor = () => {
 
 
     return (
-        <div className='login-form'>
-            <div className="container login-form">
+        <div className=''>
+            <div className="container ">
                 <div class="row align-items-center login-col">
 
                     <div class="col ">

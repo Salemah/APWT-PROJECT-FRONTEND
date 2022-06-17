@@ -11,13 +11,14 @@ import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
 import AddDoctor from './Pages/Admin/Adddoctor/AddDoctor';
 import Login2 from './Pages/Login/Login2';
-import Lgg from './Pages/Login/Lggg';
+import Login3 from './Pages/Login/Login3';
+
 // const id = parseInt(localStorage.getItem('id'));
 // const token = localStorage.getItem('token');
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
      <BrowserRouter>
    
      <Switch>
@@ -27,11 +28,9 @@ function App() {
        <Route path="/home">
          <Home></Home>
        </Route>  
+        
        <Route path="/login">
-         <Lgg></Lgg>
-       </Route>  
-       <Route path="/log2">
-         <Login2></Login2>
+         <Login3></Login3>
        </Route>  
        <Route path="/Register">
          <Registration></Registration>
