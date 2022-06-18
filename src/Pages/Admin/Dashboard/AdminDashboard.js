@@ -6,7 +6,9 @@ import DashboardHome from './DashboardHome';
 import Navbar from './Navbar';
 import '../Adddoctor/AddDoctor.css'
 import Makeadmin from '../MakeAdmin/Makeadmin';
-import AllDoctor from '../AddDoctorSlot/ALLdoctor/AllDoctor';
+import AllDoctor from '../ALLdoctor/AllDoctor';
+import AddDoctorSlot from '../ALLdoctor/AddDoctorSlot/AddDoctorSlot';
+
 
 const AdminDashboard = () => {
     const { url, path } = useRouteMatch()
@@ -24,13 +26,12 @@ const AdminDashboard = () => {
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                                 <div class="">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column  pl-0 pt-5 p-3 mt-3 ">
-                                        <li>
-                                            <Link to={`${url}/myOrders`} class="text-warning text-decoration-none">
 
-                                                My Ord
-                                            </Link>
+                                        <li class="nav-item "> <Link to={`${url}/addslot`} class="nav-link text-warning text-decoration-none">
+                                            <i class="fas fa-user"></i><span className="ml-3">Add slot</span>
+                                        </Link></li>
 
-                                        </li>
+
                                         <li class="nav-item  "> <Link to={`${url}`} class="nav-link text-warning text-decoration-none">
                                             <i class="fas fa-user font-weight-bold"></i><span className="ml-3">Dashboard</span>
 
@@ -66,9 +67,8 @@ const AdminDashboard = () => {
                         <Route exact path={path}>
                             <DashboardHome />
                         </Route>
-                        <Route path={`${path}/myOrders`}>
-
-                            <AddDoctor />
+                        <Route path={`${path}/addslot`}>
+                            <AddDoctorSlot />
                         </Route>
                         <Route path={`${path}/adddoctor`}>
                             <AddDoctor />

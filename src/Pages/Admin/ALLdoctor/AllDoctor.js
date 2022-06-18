@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { RingLoader } from 'react-spinners';
+import AddDoctorSlot from './AddDoctorSlot/AddDoctorSlot';
 import './ALLDoctor.css'
 
 const AllDoctor = () => {
     const [doctors, setDoctors] = useState([]);
+    const [doctorslot, setDoctorSlot] = useState('');
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
@@ -20,7 +22,7 @@ const AllDoctor = () => {
             }, function (err) {
 
             });
-    }, [doctors]);
+    }, []);
     return (
         <section>
             {
@@ -63,25 +65,24 @@ const AllDoctor = () => {
                                                     <td>{dc.email}</td>
                                                     <td>{dc.phone}</td>
                                                     <td>{dc.department}</td>
-                                                    <td><button>Add</button></td>
-                                                    <td><button>Add</button></td>
-
+                                                    <td><button 
+                                                    type="button"
+                                                    id='getappointment-btn' data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={() => setDoctorSlot(dc)} >Add Slot</button></td>
+                                                    <td><button > Launch demo modal</button></td>
                                                 </tr>
-
-
                                             )}
-
                                     </tbody>
-
                                 </table>
                             </div>
-
                         </div>
-
                     </div>
+                    <AddDoctorSlot
+                        doctorslot={doctorslot}
+                    >
 
-
+                    </AddDoctorSlot>
                 </div>
+
             }
 
         </section>
