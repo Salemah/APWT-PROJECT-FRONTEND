@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { RingLoader } from 'react-spinners';
+import DoctorAllSlot from '../DoctorAllSlot/DoctorAllSlot';
 import AddDoctorSlot from './AddDoctorSlot/AddDoctorSlot';
 import './ALLDoctor.css'
 
@@ -68,7 +69,8 @@ const AllDoctor = () => {
                                                     <td><button 
                                                     type="button"
                                                     id='getappointment-btn' data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={() => setDoctorSlot(dc)} >Add Slot</button></td>
-                                                    <td><button > Launch demo modal</button></td>
+                                                    <td><button  type="button"
+                                                    id='getappointment-btn' data-bs-toggle="modal" data-bs-target="#allslotModal"onClick={() => setDoctorSlot(dc)}  > Launch demo modal</button></td>
                                                 </tr>
                                             )}
                                     </tbody>
@@ -81,6 +83,11 @@ const AllDoctor = () => {
                     >
 
                     </AddDoctorSlot>
+                    <DoctorAllSlot
+                    doctorslot={doctorslot}
+                    >
+
+                    </DoctorAllSlot>
                 </div>
 
             }
