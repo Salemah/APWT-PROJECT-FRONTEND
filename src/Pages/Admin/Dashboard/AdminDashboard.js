@@ -6,7 +6,7 @@ import DashboardHome from './DashboardHome';
 import Navbar from './Navbar';
 import '../Adddoctor/AddDoctor.css'
 import Makeadmin from '../MakeAdmin/Makeadmin';
-import AddDoctorSlot from '../AddDoctorSlot/AddDoctorSlot';
+import AllDoctor from '../AddDoctorSlot/ALLdoctor/AllDoctor';
 
 const AdminDashboard = () => {
     const { url, path } = useRouteMatch()
@@ -71,14 +71,13 @@ const AdminDashboard = () => {
                             <AddDoctor />
                         </Route>
                         <Route path={`${path}/adddoctor`}>
-
                             <AddDoctor />
                         </Route>
                         <Route path={`${path}/makeadmin`}>
                             <Makeadmin />
                         </Route>
                         <Route path={`${path}/adddoctorslot`}>
-                            <AddDoctorSlot />
+                            <AllDoctor />
                         </Route>
 
                     </Switch>
