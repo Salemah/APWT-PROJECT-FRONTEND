@@ -46,7 +46,7 @@ const Login3 = () => {
                             localStorage.setItem('userId', response.data.userId);
                             console.log(response.data.username);
                             swal("Success", response.data.message, "success");
-                           if(localStorage.getItem('usertype')=='patient'){
+                           if(localStorage.getItem('usertype')=='doctor'){
                             history.push("/dashboard");
                            }
                            else if (localStorage.getItem('usertype')=='admin'){

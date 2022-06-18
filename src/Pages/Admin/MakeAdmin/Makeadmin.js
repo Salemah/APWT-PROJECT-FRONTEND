@@ -3,20 +3,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import swal from 'sweetalert';
-import './AddDoctor.css'
+import './Makeadmin.css'
 
-const AddDoctor = () => {
+const Makeadmin = () => {
     const [regdata, setRegData] = useState({
         name: '',
         email: '',
         password: '',
         phone: '',
-        usertype: 'doctor',
+        usertype: 'admin',
         confirmPassword: '',
         errors: []
     });
     const history = useHistory();
-    const [regsuccess, setRegsuccess] = useState(false);
     const handleOnChange = e => {
         const feild = e.target.name;
         const value = e.target.value;
@@ -61,14 +60,17 @@ const AddDoctor = () => {
 
     return (
         <div class="add-doctorg">
+
             <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">AddDoctor</li>
+            <li class="breadcrumb-item active" aria-current="page">AddAdmin</li>
         </ol>
         </nav>
+        <h2 className='text-center'>Add Admin</h2>
             <div class="form-bgg">
+                
                 <div class="form-body">
                     <form   onSubmit={handleonSubmit}>
                         <div class="my-3 ">
@@ -137,6 +139,4 @@ const AddDoctor = () => {
     );
 };
 
-
-
-export default AddDoctor;
+export default Makeadmin;

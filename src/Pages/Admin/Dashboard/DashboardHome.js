@@ -17,7 +17,7 @@ const DashboardHome = () => {
     
  
     return (
-    <div class="col main pt-5 mt-3">
+    <div class="col main ">
          
         <nav aria-label="breadcrumb">
         <ol class="breadcrumb">

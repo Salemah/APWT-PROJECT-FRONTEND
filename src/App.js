@@ -6,9 +6,10 @@ import Home from './Pages/Home/Home/Home';
 import Registration from './Pages/Register/Registration';
 import Dashboard from './Pages/Patient/Dashboard/Dashboard';
 import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDoctorShedule';
-import AddDoctor from './Pages/Admin/Adddoctor/AddDoctor';
+
 import Login3 from './Pages/Login/Login3';
 import AdminDashboard from './Pages/Admin/Dashboard/AdminDashboard';
+
 
 
 
@@ -34,16 +35,16 @@ function App() {
        <Route path="/Register">
          <Registration></Registration>
        </Route>  
-       <Route path="/AddDoctor">
-         <AddDoctor></AddDoctor>
-       </Route>  
+       {/* <Route path="/AddDoctor">
+         <AdminDashboard/>
+       </Route>   */}
        
        
       <Route path="/dashboard">
          <Dashboard></Dashboard>
        </Route>
       <Route path="/admindashboard">
-         <AdminDashboard></AdminDashboard>
+      <AdminDashboard/>
        </Route>
         <Route path="/singledoctor/:id">
          <SingleDoctorShedule></SingleDoctorShedule> 

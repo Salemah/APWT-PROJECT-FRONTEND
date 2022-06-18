@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import swal from 'sweetalert';
-import './AddDoctor.css'
+import './AddDoctorSlot.css'
 
-const AddDoctor = () => {
+const AddDoctorSlot = () => {
     const [regdata, setRegData] = useState({
         name: '',
         email: '',
@@ -137,6 +137,4 @@ const AddDoctor = () => {
     );
 };
 
-
-
-export default AddDoctor;
+export default AddDoctorSlot;
