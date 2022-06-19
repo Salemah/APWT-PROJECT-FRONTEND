@@ -1,6 +1,29 @@
+import axios from 'axios';
 import React from 'react'
- 
+import { useHistory } from 'react-router-dom';
+import swal from 'sweetalert';
 export const Navbar = () => {
+  const history = useHistory();
+
+  const logout = (event) => {
+    event.preventDefault();
+   
+    //console.log(data);
+    axios.post('http://localhost:8000/api/logout')
+        .then(response => {
+            if (response.data.status === 'success') {
+               localStorage.removeItem(' usertype', response.data.usertype);
+                localStorage.removeItem('userId', response.data.userId);
+                localStorage.removeItem('id', response.data.id);
+                localStorage.removeItem('name', response.data.name);
+                localStorage.removeItem('email', response.data.email);
+                swal("Success", response.data.message, "success");
+                history.push('/');
+            } else {
+                swal("Warning", "Something wrong", "error");
+            }
+        })
+}
     return (
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -34,6 +57,7 @@ export const Navbar = () => {
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
               <button class="btn btn-outline-success" type="submit">Search</button>
+              <button onClick={logout}>Logout</button>
             </form>
           </div>
         </div>

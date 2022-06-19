@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { BarLoader, ClockLoader, PuffLoader, PulseLoader, RingLoader } from 'react-spinners';
 
 const DoctorList = () => {
-    const [doctors,setDoctors]= useState([]);
+    const [doctors, setDoctors] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
@@ -13,12 +13,12 @@ const DoctorList = () => {
             setLoading(false);
         }, 1000);
     }, []);
-  
+
     useEffect(function () {
         axios.get("http://localhost:8000/api/alldoctor")
             .then(function (rsp) {
                 //console.log(rsp)
-                 setDoctors(rsp.data);
+                setDoctors(rsp.data);
             }, function (err) {
 
             });
@@ -33,63 +33,61 @@ const DoctorList = () => {
     return (
         <section>
             {
-                loading ?<div className="loading-bg">
-                <div className="d-flex justify-content-center align-items-center text-center" >
-                    <div className="">
+                loading ? <div className="loading-bg">
+                    <div className="d-flex justify-content-center align-items-center text-center" >
                         <div className="">
-                            <h5 className="fw-bold text-uppercase" style={{ color: "#0596F7",marginTop:'5px'}}>
-                                <span><span className="mx-2">Loading</span>
-                                    <RingLoader className="App" size={60} color={"#0596F7"} loading={loading} />
-                                   
-                                </span>
-                            </h5>
+                            <div className="">
+                                <h5 className="fw-bold text-uppercase" style={{ color: "#0596F7", marginTop: '5px' }}>
+                                    <span><span className="mx-2">Loading</span>
+                                        <RingLoader className="App" size={60} color={"#0596F7"} loading={loading} />
+
+                                    </span>
+                                </h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div> :<div className="">
-                <div class="container">
-                    <div class="row justify-content-md-center mt-5">
-    
-                        <div class="col-md-12">
-                            <table class="table table-bordered border-primary">
-                                <thead>
-                                    <tr>
-                                        <th >Name</th>
-                                        <th >department</th>
-                                        <th >Email</th>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        doctors.map(dc =>
-                                            <tr>
-                                                <td >{dc.name}</td>
-                                                <td>{dc.department}</td>
-                                                <td>{dc.email}</td>
-                                                
-                                            </tr>
-    
-    
-                                        )}
-    
-                                </tbody>
-    
-                            </table>
+                </div> : <div className="">
+                    <div class="container">
+                        <div class="row justify-content-md-center mt-5">
+                            <div class="col-md-12">
+                                <table class="table table-bordered border-primary">
+                                    <thead>
+                                        <tr>
+                                            <th >Name</th>
+                                            <th >department</th>
+                                            <th >Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            doctors.map(dc =>
+                                                <tr>
+                                                    <td >{dc.name}</td>
+                                                    <td>{dc.department}</td>
+                                                    <td>{dc.email}</td>
+
+                                                </tr>
+
+
+                                            )}
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+
                         </div>
-    
+
                     </div>
-    
+
+
                 </div>
-    
-                
-            </div>
             }
- 
+
         </section>
-        
-       
-        
+
+
+
     );
 };
 

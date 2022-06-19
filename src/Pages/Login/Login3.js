@@ -43,6 +43,7 @@ const Login3 = () => {
                             localStorage.setItem('email', response.data.email);
                             localStorage.setItem('name', response.data.name);
                             localStorage.setItem('username', response.data.username);
+                            localStorage.setItem('phone', response.data.phone);
                             localStorage.setItem('userId', response.data.userId);
                             console.log(response.data.username);
                             swal("Success", response.data.message, "success");
@@ -53,7 +54,7 @@ const Login3 = () => {
                             history.push("/admindashboard");
                            }
                            else{
-                            history.push("/AddDoctor");
+                            history.push("/dashboard");
                            }
                                
                             

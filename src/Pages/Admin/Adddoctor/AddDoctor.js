@@ -11,6 +11,7 @@ const AddDoctor = () => {
         email: '',
         password: '',
         phone: '',
+        department:'',
         usertype: 'doctor',
         confirmPassword: '',
         errors: []
@@ -48,9 +49,7 @@ const AddDoctor = () => {
                 else {
 
                     swal("Success", response.data.success, "success");
-                    history.push("/login");
-
-                }
+                 }
 
             });
 
@@ -79,6 +78,12 @@ const AddDoctor = () => {
                              <span style={{
                            color: "white", fontSize: "12px", fontWeight: "bold"
                        }}>{regdata.errors.name}</span>
+                        </div>
+                        <div class="my-3 ">
+                        
+                            <input type="text" class="form-control" placeholder='Enter Department'
+                             name='department'
+                             onBlur={handleOnChange} />
                         </div>
                         <div class="my-3">
                        

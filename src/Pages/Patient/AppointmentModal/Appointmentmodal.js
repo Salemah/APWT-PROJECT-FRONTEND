@@ -5,16 +5,17 @@ import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 
 const Appointmentmodal = ({ doctorslot }) => {
-    const { dcid, dname, slot, day } = doctorslot;
+    const {  name, time, day,userId } = doctorslot;
 const [appointment, setAppointment] = useState({
-        dcid:'', dname:'', patientid:'', patientname:'', slot:'', day:'',date:'', errors: []
+      patientId:'', patientname:'',email:'', time:'', day:'',phone:'', errors: []
     });
     const history = useHistory();
     let { path, url } = useRouteMatch();
     const [user, setUser] = useState([]);
     const patientid = parseInt(localStorage.getItem('id'));
-    const patientname = localStorage.getItem('username');
+    const patientname = localStorage.getItem('name');
     const pemail = localStorage.getItem('email');
+    const  phone = localStorage.getItem('phone');
 
 
 
@@ -24,16 +25,19 @@ const [appointment, setAppointment] = useState({
         const newaptdata = { ...appointment };
         newaptdata[feild] = value;
         setAppointment(newaptdata);
-
+console.log(appointment);
 
 
 
     }
     const handleaddservice = e => {
         const data = {
-            ...appointment, dcid, dname, patientid, patientname, slot, day,pemail
+            ...appointment,
+            doctor: name,
+            
+            dcid:userId, patientid
         }
-        axios.post(`http://localhost:8000/api/Patient/Appointmentsubmit`, data)
+        axios.post(`http://localhost:8000/api/appointmentsubmit`, data)
             .then(res => {
                 if (res.data.validation_errors){
                     setAppointment({ ...appointment, errors: res.data.validation_errors });
@@ -70,7 +74,7 @@ const [appointment, setAppointment] = useState({
                             <form onSubmit={handleaddservice}>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label">Name</label>
-                                    <input type="text" name='name' className="form-control"
+                                    <input type="text" name='patientname' className="form-control"
                                         value={patientname} />
                                 </div>
                                 <div className="mb-3">
@@ -88,14 +92,16 @@ const [appointment, setAppointment] = useState({
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label">SId</label>
-                                    <input type="text" name='slot'
+                                    <input type="text" name='time'
                                         className="form-control"
-                                        value={slot} />
+                                        value={time } />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="exampleInputPassword1" className="form-label">date</label>
-                                    <input type="date" name='date'
+                                    <label htmlFor="exampleInputPassword1" className="form-label">Phone</label>
+                                    <input type="text" name='phone'
                                         onBlur={handleOnChange} className="form-control"
+                                        defaultValue={phone}
+                                       
                                     />
                                 </div>
 

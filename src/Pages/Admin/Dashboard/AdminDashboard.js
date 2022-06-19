@@ -26,12 +26,6 @@ const AdminDashboard = () => {
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                                 <div class="">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column  pl-0 pt-5 p-3 mt-3 ">
-
-                                        <li class="nav-item "> <Link to={`${url}/addslot`} class="nav-link text-warning text-decoration-none">
-                                            <i class="fas fa-user"></i><span className="ml-3">Add slot</span>
-                                        </Link></li>
-
-
                                         <li class="nav-item  "> <Link to={`${url}`} class="nav-link text-warning text-decoration-none">
                                             <i class="fas fa-user font-weight-bold"></i><span className="ml-3">Dashboard</span>
 

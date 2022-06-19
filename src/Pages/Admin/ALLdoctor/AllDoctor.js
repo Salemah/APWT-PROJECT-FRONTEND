@@ -70,7 +70,7 @@ const AllDoctor = () => {
                                                     type="button"
                                                     id='getappointment-btn' data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={() => setDoctorSlot(dc)} >Add Slot</button></td>
                                                     <td><button  type="button"
-                                                    id='getappointment-btn' data-bs-toggle="modal" data-bs-target="#allslotModal"onClick={() => setDoctorSlot(dc)}  > Launch demo modal</button></td>
+                                                    id='getappointment-btn' data-bs-toggle="modal" data-bs-target="#allslotModal"onClick={() => setDoctorSlot(dc)}  >All Slot</button></td>
                                                 </tr>
                                             )}
                                     </tbody>
