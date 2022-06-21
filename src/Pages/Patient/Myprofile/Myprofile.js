@@ -20,8 +20,8 @@ const Myprofile = () => {
     //get all appointment 
     useEffect(function () {
         axios.get(`http://localhost:8000/api/PatientMyProfile/${id}`)
-            .then(rsp => {
-                setUser(rsp.data);
+            .then(res => {
+                setUser(res.data);
             }, (err) => {
 
             });
@@ -47,9 +47,9 @@ const Myprofile = () => {
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-6 crd-body">
-                        <p >User Name: {user.username}</p>
+                        <p >Name: {user.name}</p>
                         <p >Email : {user.email}</p>
-                        <p >Name : {user.name}</p>
+                        <p >Phone : {user.phone}</p>
                         <button id='editprofile-btn'
                         onClick={() => setEditUser(user)} 
                          data-bs-toggle="modal" 

@@ -5,17 +5,18 @@ import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 
 const Appointmentmodal = ({ doctorslot }) => {
-    const {  name, time, day,userId } = doctorslot;
-const [appointment, setAppointment] = useState({
-      patientId:'', patientname:'',email:'', time:'', day:'',phone:'', errors: []
-    });
+    const { name, time, day, userId } = doctorslot;
+   
     const history = useHistory();
     let { path, url } = useRouteMatch();
     const [user, setUser] = useState([]);
     const patientid = parseInt(localStorage.getItem('id'));
     const patientname = localStorage.getItem('name');
     const pemail = localStorage.getItem('email');
-    const  phone = localStorage.getItem('phone');
+    const phone = localStorage.getItem('phone');
+    const [appointment, setAppointment] = useState({
+        patientname: patientname, email: pemail, time: time, day: day, phone: phone, errors: []
+    });
 
 
 
@@ -25,7 +26,7 @@ const [appointment, setAppointment] = useState({
         const newaptdata = { ...appointment };
         newaptdata[feild] = value;
         setAppointment(newaptdata);
-console.log(appointment);
+
 
 
 
@@ -34,29 +35,22 @@ console.log(appointment);
         const data = {
             ...appointment,
             doctor: name,
-            
-            dcid:userId, patientid
+            time: time, day: day,
+            dcid: userId, patientid
         }
+        console.log(data);
         axios.post(`http://localhost:8000/api/appointmentsubmit`, data)
             .then(res => {
-                if (res.data.validation_errors){
+                if (res.data.validation_errors) {
                     setAppointment({ ...appointment, errors: res.data.validation_errors });
                     swal("Warning", "Appointment Failed!", "error");
+                    console.log(res.data.validation_errors);
                 }
                 else {
 
                     swal("Success", res.data.success, "success");
-                   
-
                 }
-            }
-            
-           )
-
-     
-
-
-
+            })
         e.preventDefault();
 
     }
@@ -75,33 +69,37 @@ console.log(appointment);
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label">Name</label>
                                     <input type="text" name='patientname' className="form-control"
-                                        value={patientname} />
+                                        value={patientname}
+                                        onBlur={handleOnChange} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                                     <input type="text" name='email' className="form-control"
-                                        value={pemail} />
+                                        value={pemail}
+                                        onBlur={handleOnChange} />
 
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label">Day</label>
                                     <input type="text" name='day' className="form-control"
 
-                                        value={day} />
+                                        value={day}
+                                        onBlur={handleOnChange} />
 
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label">SId</label>
                                     <input type="text" name='time'
                                         className="form-control"
-                                        value={time } />
+                                        value={time}
+                                        onBlur={handleOnChange} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label">Phone</label>
                                     <input type="text" name='phone'
                                         onBlur={handleOnChange} className="form-control"
                                         defaultValue={phone}
-                                       
+
                                     />
                                 </div>
 
