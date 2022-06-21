@@ -4,10 +4,11 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import AddDoctor from '../Adddoctor/AddDoctor';
 import DashboardHome from './DashboardHome';
 import Navbar from './Navbar';
-import '../Adddoctor/AddDoctor.css'
 import Makeadmin from '../MakeAdmin/Makeadmin';
 import AllDoctor from '../ALLdoctor/AllDoctor';
 import AddDoctorSlot from '../ALLdoctor/AddDoctorSlot/AddDoctorSlot';
+import AllAppointments from '../AllAppointments/AllAppointments';
+
 
 
 const AdminDashboard = () => {
@@ -17,7 +18,7 @@ const AdminDashboard = () => {
             <Navbar />
             <div class="row">
 
-                <div class="col-md-2 col-lg-2 pl-0  bg-dark" >
+                <div class="col-md-2 col-lg-2 pl-0   bg-dark" >
                     <nav class="navbar navbar-expand-lg navbar-light ">
                         <div class="container-fluid  ">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,20 +32,31 @@ const AdminDashboard = () => {
 
                                         </Link></li>
                                         <li class="nav-item "> <Link to={`${url}/adddoctor`} class="nav-link text-warning text-decoration-none">
-                                            <i class="fas fa-user"></i><span className="ml-3">Add Doctor</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                            </svg>
+                                            <span className="ml-3">Add Doctor</span>
 
                                         </Link></li>
                                         <li class="nav-item "> <Link to={`${url}/makeadmin`} class="nav-link text-warning text-decoration-none">
                                             <i class="fas fa-user"></i><span className="ml-3">Add Admin</span>
 
                                         </Link></li>
-                                        <li class="nav-item "> <Link to={`${url}/adddoctorslot`} class="nav-link text-warning text-decoration-none">
-                                            <i class="fas fa-user"></i><span className="ml-3">DoctorSlot</span>
+                                        {/*  */}
+                                        <li class="nav-item "> <Link to={`${url}/allapt`} class="nav-link text-warning text-decoration-none">
+                                            <i class="fas fa-user"></i><span className="ml-2">Appointment</span>
 
                                         </Link></li>
+                                        {/*  */}
+                                        <li class="nav-item "> <Link to={`${url}/adddoctorslot`} class="nav-link text-warning text-decoration-none">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+                                                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                                <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                                            </svg><span className="ml-3">DoctorSlot</span>
 
-
-                                        <li class="nav-item  "><a class="nav-link text-secondary" href="#"><i class="fas fa-user font-weight-bold"></i> <span className="ml-3">Overview</span></a></li>
+                                        </Link></li>
+                                    <li class="nav-item  "><a class="nav-link text-secondary" href="#"><i class="fas fa-user font-weight-bold"></i> <span className="ml-3">Overview</span></a></li>
 
                                         <li class="nav-item mb-2"><a class="nav-link text-secondary" href="#"><i class="far fa-chart-bar font-weight-bold"></i> <span className="ml-3">Analytics</span></a></li>
                                         <li class="nav-item mb-2"><a class="nav-link text-secondary" href="#"><i class="fas fa-file-export font-weight-bold"></i><span className="ml-3">Export</span></a></li>
@@ -56,7 +68,7 @@ const AdminDashboard = () => {
                         </div>
                     </nav>
                 </div>
-                <div class="col-10 me-0 pe-0  dasboard-bg ">
+                <div class="col-12 col-md-10 col-lg-10 me-0 pe-0  dasboard-bg ">
                     <Switch>
                         <Route exact path={path}>
                             <DashboardHome />
@@ -73,6 +85,10 @@ const AdminDashboard = () => {
                         <Route path={`${path}/adddoctorslot`}>
                             <AllDoctor />
                         </Route>
+                        <Route path={`${path}/allapt`}>
+                            <AllAppointments />
+                        </Route>
+                       
 
                     </Switch>
                 </div>

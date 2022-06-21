@@ -6,9 +6,9 @@ import './EditProfile.css';
 const EditmMyProfile = ({ editprofile }) => {
     const { userId, name, email, phone } = editprofile;
     const [updateprofile, setUpdateprofile] = useState({
-        name: '',
+        name: "",
         email: '',
-        phone:'',
+        phone: '',
         errors: []
     });
     const handleOnChange = e => {
@@ -58,16 +58,18 @@ const EditmMyProfile = ({ editprofile }) => {
                                     <label htmlFor="exampleInputPassword1" className="form-label ">Name</label>
                                     <input type="text" name='name' className="form-control "
                                         defaultValue={name}
-                                        onFocus={handleOnChange}
+                                        onBlur={handleOnChange}
 
                                     />
+                                    
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label ">Name</label>
                                     <input type="text" name='phone' className="form-control "
                                         defaultValue={phone}
-                                        onFocus={handleOnChange}
+                                        onBlur={handleOnChange}
                                     />
+                                    
                                 </div>
 
 
@@ -76,7 +78,7 @@ const EditmMyProfile = ({ editprofile }) => {
                                     <label htmlFor="exampleInputPassword1" className="form-label ">Email</label>
                                     <input type="email" name='email'
                                         className="form-control "
-                                        onFocus={handleOnChange}
+                                        onBlur={handleOnChange}
                                         defaultValue={email}
 
                                     />

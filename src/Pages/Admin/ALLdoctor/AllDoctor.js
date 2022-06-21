@@ -40,18 +40,19 @@ const AllDoctor = () => {
                             </div>
                         </div>
                     </div>
-                </div> : <div className="">
+                </div> : 
+                <div className="">
                     <div class="container">
-                        <h2 className='text-center mt-3'>all</h2>
+                        <h2 className='text-center mt-3 ' style={{color:'#001AF5 '}}> ALL DOCTOR</h2>
                         <div class="row justify-content-md-center mt-5">
 
-                            <div class="col-md-12">
+                            <div class="col-sm-12 col-md-12 ">
                                 <table class="table table-bordered border-primary">
                                     <thead>
                                         <tr>
-                                            <th >Name</th>
-                                            <th >Email</th>
-                                            <th >Phone</th>
+                                            <th width="200px" >Name</th>
+                                            <th width="200px" >Email</th>
+                                            <th width="200px" >Phone</th>
                                             <th >department</th>
                                             <th >Add</th>
                                             <th >Action</th>
@@ -78,7 +79,7 @@ const AllDoctor = () => {
                             </div>
                         </div>
                     </div>
-                    <AddDoctorSlot
+                   <AddDoctorSlot
                         doctorslot={doctorslot}
                     >
 
@@ -87,7 +88,7 @@ const AllDoctor = () => {
                     doctorslot={doctorslot}
                     >
 
-                    </DoctorAllSlot>
+                    </DoctorAllSlot> 
                 </div>
 
             }

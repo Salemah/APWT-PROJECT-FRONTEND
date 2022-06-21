@@ -2,18 +2,20 @@ import React, { useEffect, useState } from 'react';
 
 
 const DashboardHome = () => {
-    const[record,setRecord] = useState([])
+    const[user,setUser] = useState([])
  
    const getData = () =>
    {
-       fetch('https://jsonplaceholder.typicode.com/users')
+       fetch('http://localhost:8000/api/alluser')
        .then(resposne=> resposne.json())
-       .then(res=>setRecord(res))
+       .then(res=>setUser(res))
    }
  
    useEffect(() => {
-      getData();
-   },)
+    fetch('http://localhost:8000/api/alluser')
+    .then(resposne=> resposne.json())
+    .then(res=>setUser(res))
+   },[user])
     
  
     return (
@@ -43,7 +45,7 @@ const DashboardHome = () => {
                             <i class="fa fa-user fa-4x"></i>
                         </div>
                         <h6 class="text-uppercase">Users</h6>
-                        <h1 class="display-4">134</h1>
+                        <h1 class="display-4">{user.length}</h1>
                     </div>
                 </div>
             </div>
