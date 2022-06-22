@@ -44,9 +44,11 @@ const Getappointment = () => {
             <div className="">
             <div class="container">
                 <div class="row justify-content-md-center">
-
+                <div class="card my-2" style={{width: "100%"}} >
+                <h5 class="card-header  " >Get Appointment</h5>
+                <div class="card-body">
                     <div class="col-md-12">
-                        <table class="table">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th >Name</th>
@@ -71,6 +73,8 @@ const Getappointment = () => {
                             </tbody>
 
                         </table>
+                    </div>
+                    </div>
                     </div>
 
                 </div>

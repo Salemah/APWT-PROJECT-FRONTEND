@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { BarLoader, ClockLoader, PuffLoader, PulseLoader, RingLoader } from 'react-spinners';
-
+import './doctorlist.css';
 const DoctorList = () => {
     const [doctors, setDoctors] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -25,11 +25,6 @@ const DoctorList = () => {
     }, []);
 
 
-
-    // const DoctorShedule = id =>{
-    //     const url = `/singledoctor/${id}`;
-    //     history.push(url);
-    // }
     return (
         <section>
             {
@@ -37,7 +32,7 @@ const DoctorList = () => {
                     <div className="d-flex justify-content-center align-items-center text-center" >
                         <div className="">
                             <div className="">
-                                <h5 className="fw-bold text-uppercase" style={{ color: "#0596F7", marginTop: '5px' }}>
+                                <h5 className="fw-bold text-uppercase" style={{ color: "#0596F7", marginTop: '155px',  }}>
                                     <span><span className="mx-2">Loading</span>
                                         <RingLoader className="App" size={60} color={"#0596F7"} loading={loading} />
 
@@ -49,7 +44,7 @@ const DoctorList = () => {
                 </div> : <div className="">
                     <div class="container">
                         <div class="row justify-content-md-center mt-5">
-                            <div class="col-md-12">
+                            <div class="col-md-12 doctor-table">
                                 <table class="table table-bordered border-primary">
                                     <thead>
                                         <tr>

@@ -9,6 +9,7 @@ import SingleDoctorShedule from './Pages/Patient/SingleDoctorshedule/SingleDocto
 
 import Login3 from './Pages/Login/Login3';
 import AdminDashboard from './Pages/Admin/Dashboard/AdminDashboard';
+import DoctorDashboard from './Pages/Doctor/DoctorDashboard/DoctorDashboard';
 
 
 
@@ -45,6 +46,9 @@ function App() {
        </Route>
       <Route path="/admindashboard">
       <AdminDashboard/>
+       </Route>
+      <Route path="/doctordashboard">
+      <DoctorDashboard/>
        </Route>
         <Route path="/singledoctor/:id">
          <SingleDoctorShedule></SingleDoctorShedule> 

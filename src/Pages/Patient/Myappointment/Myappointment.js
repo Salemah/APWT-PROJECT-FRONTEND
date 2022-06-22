@@ -65,6 +65,7 @@ const Myappointment = () => {
                                     
                                     <p>Day: {apt.day}</p>
                                     <p>Time: {apt.time}</p>
+                                    <p style={{color:'red'}}>Status: {apt.Status}</p>
                                     <button id='apt-deletbtn' onClick={() => handledelete(apt.id)} >Cancel</button>
 
                                 </div>
