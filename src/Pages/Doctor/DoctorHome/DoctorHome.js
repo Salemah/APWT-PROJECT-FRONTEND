@@ -1,15 +1,15 @@
 import React from 'react';
+import { useRouteMatch } from 'react-router-dom';
 
 const DoctorHome = () => {
+    const { url, path } = useRouteMatch();
     return (
         <div class="col main ">
          
         <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Library</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-        </ol>
+            <li class="breadcrumb-item"><a href="#">Home{url}</a></li>
+           </ol>
         </nav>
         <p class="lead d-none d-sm-block">Add Employee Details and Records</p>
  

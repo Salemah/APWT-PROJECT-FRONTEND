@@ -9,14 +9,39 @@ import AllDoctor from '../ALLdoctor/AllDoctor';
 import AddDoctorSlot from '../ALLdoctor/AddDoctorSlot/AddDoctorSlot';
 import AllAppointments from '../AllAppointments/AllAppointments';
 import AllPatient from '../AllPatient/AllPatient';
-
+import img  from '../../../images/single-img-24.jpg'
+import './dashboard.css'
+import axios from 'axios';
+import swal from 'sweetalert';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const AdminDashboard = () => {
-    const { url, path } = useRouteMatch()
+    const DoctorName = localStorage.getItem('name');
+    const { url, path } = useRouteMatch();
+    const history = useHistory();
+    const logout = (event) => {
+        event.preventDefault();
+
+        //console.log(data);
+        axios.post('http://localhost:8000/api/logout')
+            .then(response => {
+                if (response.data.status === 'success') {
+                    localStorage.removeItem(' usertype', response.data.usertype);
+                    localStorage.removeItem('userId', response.data.userId);
+                    localStorage.removeItem('id', response.data.id);
+                    localStorage.removeItem('name', response.data.name);
+                    localStorage.removeItem('email', response.data.email);
+                    swal("Success", response.data.message, "success");
+                    history.push('/');
+                } else {
+                    swal("Warning", "Something wrong", "error");
+                }
+            })
+    }
     return (
         <div class="">
-            <Navbar />
+        
             <div class="row">
 
                 <div class="col-md-2 col-lg-2 pl-0   bg-dark" >
@@ -27,6 +52,12 @@ const AdminDashboard = () => {
                             </button>
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                                 <div class="">
+                                <div class="mt-4" style={{ color: 'red', textAlign: "center", fontSize: '18px', fontWeight: 'bold' }}>
+                                            <p>{DoctorName} Dashboard</p>
+                                            <div class="dasbord-img">
+                                            <img src={img } alt=""/>
+                                            </div>
+                                        </div>
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column  pl-0 pt-5 p-3 mt-3 ">
                                         <li class="nav-item  "> <Link to={`${url}`} class="nav-link text-warning text-decoration-none">
                                             <i class="fas fa-user font-weight-bold"></i><span className="ml-3">Dashboard</span>
@@ -61,10 +92,11 @@ const AdminDashboard = () => {
                                             </svg><span className="ml-3">DoctorSlot</span>
 
                                         </Link></li>
-                                    <li class="nav-item  "><a class="nav-link text-secondary" href="#"><i class="fas fa-user font-weight-bold"></i> <span className="ml-3">Overview</span></a></li>
 
-                                        <li class="nav-item mb-2"><a class="nav-link text-secondary" href="#"><i class="far fa-chart-bar font-weight-bold"></i> <span className="ml-3">Analytics</span></a></li>
-                                        <li class="nav-item mb-2"><a class="nav-link text-secondary" href="#"><i class="fas fa-file-export font-weight-bold"></i><span className="ml-3">Export</span></a></li>
+                                        <li class="nav-item mb-2 ">
+                                            <button className='btn btn-warning ' onClick={logout}>Logout</button>
+                                        </li>
+                                    
 
                                     </ul>
                                 </div>
@@ -96,6 +128,7 @@ const AdminDashboard = () => {
                         <Route path={`${path}/allpatient`}>
                             <AllPatient />
                         </Route>
+                        
                        
 
                     </Switch>

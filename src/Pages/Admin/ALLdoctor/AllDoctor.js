@@ -8,7 +8,9 @@ import swal from 'sweetalert';
 
 const AllDoctor = () => {
     const [doctors, setDoctors] = useState([]);
+    const [displaydoctors, setDisplayDoctors] = useState([]);
     const [doctorslot, setDoctorSlot] = useState('');
+
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
@@ -21,10 +23,11 @@ const AllDoctor = () => {
         axios.get("http://localhost:8000/api/alldoctor")
             .then(function (rsp) {
                 setDoctors(rsp.data);
+                setDisplayDoctors(rsp.data);
             }, function (err) {
 
             });
-    }, [doctors]);
+    }, []);
     const handledelete = id => {
         const confirm = window.confirm("Are you sure to delete this Appointment");
         if (confirm) {
@@ -37,6 +40,21 @@ const AllDoctor = () => {
                         swal("Warning", "Appointment delete Failed!", "error");
                     }
                 })}}
+                const handleSearch = event => {
+                    const searchText = event.target.value;
+                    const matchedProducts = doctors.filter(doctor => doctor.name.toLowerCase().includes(searchText.toLowerCase()));
+                    setDisplayDoctors(matchedProducts);
+                }
+                const handleSearchById = event => {
+                    const searchText = event.target.value;
+                    const matcheddc = doctors.filter(product =>  product.userId.toLocaleString().includes(searchText.toLocaleString()));
+                    setDisplayDoctors(matcheddc);
+                }
+                const handleSearchByDepartment = event => {
+                    const searchText = event.target.value;
+                    const matcheddpt = doctors.filter(product => product.department.toLowerCase().includes(searchText.toLowerCase()));
+                    setDisplayDoctors(matcheddpt);
+                }
     return (
         <section>
             {
@@ -55,6 +73,26 @@ const AllDoctor = () => {
                     </div>
                 </div> : 
                 <div className="">
+                    <div class="card">
+                    <form action="" method="get" class="card-header">
+                            <div class="form-row justify-content-between">
+                                <div class="col-md-2">
+                                    <input onChange={handleSearch}
+                                        placeholder="Search By Name " type="text" class="form-control" />
+                                </div>
+                                <div class="col-md-2">
+                                    <input onChange={handleSearchById}
+                                        placeholder="Search By Id " type="text" class="form-control" />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <input onChange={ handleSearchByDepartment}
+                                        placeholder="Search By Department " type="text" class="form-control" />
+                                </div>
+
+
+                            </div>
+                        </form>
                     <div class="container">
                         <h2 className='text-center mt-3 ' style={{color:'#001AF5 '}}> ALL DOCTOR</h2>
                         <div class="row justify-content-md-center mt-5">
@@ -75,7 +113,7 @@ const AllDoctor = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            doctors.map(dc =>
+                                           displaydoctors.map(dc =>
                                                 <tr>
                                                     <td ><button
                                                       id='getappointment-btn' onClick={() => handledelete(dc.userId)}  >Delete</button></td>
@@ -94,6 +132,7 @@ const AllDoctor = () => {
                                 </table>
                             </div>
                         </div>
+                    </div>
                     </div>
                    <AddDoctorSlot
                         doctorslot={doctorslot}

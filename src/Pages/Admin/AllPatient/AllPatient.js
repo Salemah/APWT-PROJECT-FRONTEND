@@ -5,14 +5,16 @@ import swal from 'sweetalert';
 
 const AllPatient = () => {
     const [patient, setPatient] = useState([]);
+    const [displaypatient, setDisplayPatient] = useState([]);
     useEffect(function () {
         axios.get(`http://localhost:8000/api/allpatient`)
             .then(function (rsp) {
                 setPatient(rsp.data);
+                setDisplayPatient(rsp.data);
             }, function (err) {
 
             });
-    }, [patient]);
+    }, []);
     const handledelete = id => {
         const confirm = window.confirm("Are you sure to delete this Appointment");
         if (confirm) {
@@ -28,6 +30,11 @@ const AllPatient = () => {
         }
 
     }
+    const handleSearch = event => {
+        const searchText = event.target.value;
+        const matchedProducts = patient.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
+        setDisplayPatient(matchedProducts);
+    }
     return (
         <div>
             <nav aria-label="breadcrumb">
@@ -41,20 +48,28 @@ const AllPatient = () => {
                 <div class="card-header">
                   <h2 className='text-center' >All Patient List</h2>
                 </div>
+                <form action="" method="get" class="card-header">
+                            <div class="form-row justify-content-between">
+                                <div class="col-md-2">
+                                    <input onChange={handleSearch}
+                                        placeholder="Search By Name " type="text" class="form-control" />
+                                </div>
+                               </div>
+                        </form>
                 <div class="card-body">
                 <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Doctor</th>
-                                    <th scope="col">Patient</th>
-                                    <th scope="col">Day</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                
                               { 
-                             patient.map(apt=>
+                            displaypatient.map(apt=>
                                 <tr>
                                 <td >{apt.name}</td>
                                 <td >{apt.email}</td>
