@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { RingLoader } from 'react-spinners';
 import DoctorAllSlot from '../DoctorAllSlot/DoctorAllSlot';
 import AddDoctorSlot from './AddDoctorSlot/AddDoctorSlot';
-import './ALLDoctor.css'
+import './ALLDoctor.css';
+import swal from 'sweetalert';
 
 const AllDoctor = () => {
     const [doctors, setDoctors] = useState([]);
@@ -23,7 +24,19 @@ const AllDoctor = () => {
             }, function (err) {
 
             });
-    }, []);
+    }, [doctors]);
+    const handledelete = id => {
+        const confirm = window.confirm("Are you sure to delete this Appointment");
+        if (confirm) {
+            axios.post(`http://localhost:8000/api/deleteDoctor/${id}`)
+                .then(res => {
+                    if (res) {
+                        swal("Success", res.data.success, "success");
+                    }
+                    else {
+                        swal("Warning", "Appointment delete Failed!", "error");
+                    }
+                })}}
     return (
         <section>
             {
@@ -50,6 +63,7 @@ const AllDoctor = () => {
                                 <table class="table table-bordered border-primary">
                                     <thead>
                                         <tr>
+                                        <th width="100px" >Action</th>
                                             <th width="200px" >Name</th>
                                             <th width="200px" >Email</th>
                                             <th width="200px" >Phone</th>
@@ -63,6 +77,8 @@ const AllDoctor = () => {
                                         {
                                             doctors.map(dc =>
                                                 <tr>
+                                                    <td ><button
+                                                      id='getappointment-btn' onClick={() => handledelete(dc.userId)}  >Delete</button></td>
                                                     <td >{dc.name}</td>
                                                     <td>{dc.email}</td>
                                                     <td>{dc.phone}</td>

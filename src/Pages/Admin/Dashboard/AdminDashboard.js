@@ -8,6 +8,7 @@ import Makeadmin from '../MakeAdmin/Makeadmin';
 import AllDoctor from '../ALLdoctor/AllDoctor';
 import AddDoctorSlot from '../ALLdoctor/AddDoctorSlot/AddDoctorSlot';
 import AllAppointments from '../AllAppointments/AllAppointments';
+import AllPatient from '../AllPatient/AllPatient';
 
 
 
@@ -46,6 +47,10 @@ const AdminDashboard = () => {
                                         {/*  */}
                                         <li class="nav-item "> <Link to={`${url}/allapt`} class="nav-link text-warning text-decoration-none">
                                             <i class="fas fa-user"></i><span className="ml-2">Appointment</span>
+
+                                        </Link></li>
+                                        <li class="nav-item "> <Link to={`${url}/allpatient`} class="nav-link text-warning text-decoration-none">
+                                            <i class="fas fa-user"></i><span className="ml-2">PatientList</span>
 
                                         </Link></li>
                                         {/*  */}
@@ -87,6 +92,9 @@ const AdminDashboard = () => {
                         </Route>
                         <Route path={`${path}/allapt`}>
                             <AllAppointments />
+                        </Route>
+                        <Route path={`${path}/allpatient`}>
+                            <AllPatient />
                         </Route>
                        
 
