@@ -119,6 +119,7 @@ const AllDoctor = () => {
                                                       id='getappointment-btn' onClick={() => handledelete(dc.userId)}  >Delete</button></td>
                                                     <td >{dc.name}</td>
                                                     <td>{dc.email}</td>
+                                                    <td>   <img class="card-img-top hover-shadow" src={"http://localhost:8000/images/" + dc.image} alt="Card image cap" style={{height:"110px"}}/></td>
                                                     <td>{dc.phone}</td>
                                                     <td>{dc.department}</td>
                                                     <td><button 
@@ -133,6 +134,7 @@ const AllDoctor = () => {
                             </div>
                         </div>
                     </div>
+                  
                     </div>
                    <AddDoctorSlot
                         doctorslot={doctorslot}

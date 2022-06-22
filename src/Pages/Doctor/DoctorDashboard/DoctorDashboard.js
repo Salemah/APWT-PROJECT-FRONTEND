@@ -53,7 +53,9 @@ const DoctorDashboard = () => {
                                 <div class="">
 
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column  pl-0 pt-5 p-3 mt-3 ">
-                                        <div class="" style={{ color: 'red', textAlign: "left", fontSize: '20px', fontWeight: 'bold' }}>
+                                        <div class="" style={{ background:'#BCA9F5',padding: '0 4px',
+                                        borderRadius:'9px',
+                                        width:'100%', color: 'black', textAlign: "left", fontSize: '16px', }}>
                                             <p>{DoctorName} Dashboard</p>
                                         </div>
                                         <li class="nav-item  "> <Link to={`${url}`} class="nav-link text-warning text-decoration-none">
